@@ -12,8 +12,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfoTech - Suporte Técnico Especializado</title>
-    <meta name="description" content="InfoTech - Suporte técnico especializado em Ji-Paraná e atendimento remoto em todo Brasil. Soluções em TI, manutenção de computadores e consultoria para sua empresa.">
+    <title>InfoTech - Assistência Técnica Especializada em Ji-Paraná</title>
+    <meta name="description" content="InfoTech - Assistência técnica especializada em computadores e notebooks em Ji-Paraná. Formatação, upgrade de SSD, limpeza interna, reparos e muito mais. Atendimento rápido e garantia.">
+    <meta name="keywords" content="assistência técnica em computadores, manutenção de notebook, formatação de computador, upgrade de SSD, assistência técnica em Ji-Paraná">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -27,11 +28,38 @@
     <link rel="stylesheet" href="css/styles.css">
     
     <style>
-        /* Estilos específicos para página inicial */
+        /* ===== ESTILOS GLOBAIS MELHORADOS ===== */
         
-        /* Hero Section */
+        /* Top Trust Bar */
+        .trust-bar {
+            background: var(--primary-green);
+            color: #000;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            z-index: 1001;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .trust-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .trust-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Hero Section Melhorado */
         .hero {
-            padding: 150px 0 80px;
+            padding: 120px 0 80px;
             background: var(--gradient-bg);
             text-align: center;
         }
@@ -58,12 +86,15 @@
             background-clip: text;
             animation: fadeInUp 0.8s ease 0.2s forwards;
             opacity: 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero p {
             color: var(--text-secondary);
             font-size: 1.2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 2.5rem;
             animation: fadeInUp 0.8s ease 0.4s forwards;
             opacity: 0;
@@ -78,382 +109,426 @@
             opacity: 0;
         }
 
-        /* Planos Section */
-        .main-services {
+        /* Google Reviews Section */
+        .reviews-banner {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            border-bottom: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .reviews-banner .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .rating-large {
+            text-align: center;
+        }
+
+        .rating-large .stars {
+            color: #ffbb00;
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .rating-large .score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .rating-large .count {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .reviews-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-google {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-google:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        /* Serviços Cards Melhorados */
+        .services-highlight {
             padding: 80px 0;
             background: var(--darker-bg);
         }
 
-        .planos-grid {
+        .services-grid-modern {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .service-card.featured {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .service-card.featured:nth-child(1) { animation-delay: 0.1s; }
-        .service-card.featured:nth-child(2) { animation-delay: 0.2s; }
-        .service-card.featured:nth-child(3) { animation-delay: 0.3s; }
-
-        .service-card.featured:hover {
-            border-color: var(--primary-green);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(112,216,0,0.15);
-        }
-
-        .service-card.featured::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(112,216,0,0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            color: var(--primary-green);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* Serviços Grid */
-        .complementary-services {
-            padding: 80px 0;
-            background: var(--dark-bg);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-top: 40px;
         }
 
-        .service-card.dark {
-            background: var(--darker-bg);
-            padding: 2rem;
-            border-radius: 12px;
+        .service-card-modern {
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
         }
 
-        .service-card.dark:nth-child(1) { animation-delay: 0.1s; }
-        .service-card.dark:nth-child(2) { animation-delay: 0.15s; }
-        .service-card.dark:nth-child(3) { animation-delay: 0.2s; }
-        .service-card.dark:nth-child(4) { animation-delay: 0.25s; }
-
-        .service-card.dark:hover {
+        .service-card-modern:hover {
             border-color: var(--primary-green);
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(112,216,0,0.1);
         }
 
-        .service-card.dark::before {
+        .service-card-modern::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(112,216,0,0.05) 0%, transparent 50%);
-            pointer-events: none;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), transparent);
         }
 
-        .service-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: #ff4757;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
+        .service-icon-modern {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: rgba(112,216,0,0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .service-card.dark ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-card.dark li {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .service-card.dark li::before {
-            content: "✓";
+        .service-card-modern h3 {
             color: var(--primary-green);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
         }
 
-        /* About Section */
-        .about-section {
+        .service-card-modern p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            background: var(--dark-bg);
         }
 
-        .about-content {
-            text-align: center;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-stars {
+            color: #ffbb00;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .testimonial-author::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        /* Stats Mini */
+        .stats-mini {
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .about-content h2 {
+        .stat-mini-item {
+            text-align: center;
+        }
+
+        .stat-mini-item h3 {
+            color: var(--primary-green);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-mini-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Footer Melhorado */
+        .footer {
+            background: var(--footer-bg);
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h4 {
             color: var(--primary-green);
             margin-bottom: 20px;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
+            font-size: 1.2rem;
         }
 
-        .about-content p {
+        .footer-info p {
             color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.6s ease 0.1s forwards;
-            opacity: 0;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin: 40px 0;
+        .footer-info i {
+            margin-right: 10px;
+            color: var(--primary-green);
         }
 
-        .stat-item {
-            background: var(--card-bg);
-            padding: 30px;
+        .business-hours {
+            background: rgba(112,216,0,0.05);
+            padding: 15px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            text-align: center;
-            transition: all 0.3s;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
+            margin-top: 20px;
         }
 
-        .stat-item:nth-child(1) { animation-delay: 0.2s; }
-        .stat-item:nth-child(2) { animation-delay: 0.25s; }
-        .stat-item:nth-child(3) { animation-delay: 0.3s; }
-        .stat-item:nth-child(4) { animation-delay: 0.35s; }
-
-        .stat-item:hover {
-            border-color: var(--primary-green);
-            transform: translateY(-5px);
-        }
-
-        .stat-item h3 {
+        .business-hours h5 {
             color: var(--primary-green);
-            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .footer-column h4 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
             margin-bottom: 10px;
         }
 
-        .stat-item p {
-            color: var(--text-primary);
-            margin: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background: var(--gradient-bg);
-            position: relative;
-            text-align: center;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(112,216,0,0.1) 0%, transparent 70%);
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .cta-content p {
+        .footer-column a {
             color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            font-size: 1.2rem;
-            animation: fadeInUp 0.6s ease 0.1s forwards;
-            opacity: 0;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.6s ease 0.2s forwards;
-            opacity: 0;
-        }
-
-        /* Botões */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
+            transition: color 0.3s;
         }
 
-        .btn-primary {
-            background: var(--primary-green);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background: #6BC91A;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(112,216,0,0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary-green);
+        .footer-column a:hover {
             color: var(--primary-green);
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--primary-green);
-            border: 2px solid var(--primary-green);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-green);
-            color: #000;
-        }
-
-        /* Animações */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Responsividade */
         @media (max-width: 968px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .planos-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .stats-mini-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 120px 0 60px;
+                padding: 100px 0 60px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
-            .services-grid,
-            .planos-grid {
+            .stats-mini-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
 
-            .cta-content h2 {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
+            .reviews-banner .container {
                 flex-direction: column;
-                align-items: center;
+                gap: 20px;
             }
 
-            .cta-buttons .btn {
+            .reviews-actions {
                 width: 100%;
-                max-width: 300px;
+            }
+
+            .btn-google {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            .stats-grid {
+            .services-grid-modern {
                 grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-actions {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <span>⭐ 4.9 no Google</span>
+            <span>📊 100+ avaliações de clientes</span>
+            <span>🔧 Assistência técnica especializada</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
@@ -481,11 +556,9 @@
                 </ul>
 
                 <div style="display: flex; align-items: center; gap: 15px;">
-                    <!-- Botão de alternância de tema -->
                     <button class="theme-toggle" aria-label="Alternar modo claro/escuro">
                         <span class="icon">☀️</span>
                     </button>
-                    <!-- Botão Fale Conosco -->
                     <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-primary">Fale Conosco</a>
                 </div>
 
@@ -498,27 +571,105 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Melhorado -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">🚀 Melhor Suporte do Brasil</div>
-            <h1>Evite Perda de Tempo com Problemas de Informática</h1>
-            <p>Tenha o melhor suporte técnico especializado. Oferecemos consultoria em TI, suporte remoto e soluções personalizadas para manter seus sistemas sempre funcionando.</p>
+            <div class="hero-badge">🔧 Assistência Técnica Especializada</div>
+            <h1>Assistência Técnica Especializada em Computadores e Notebooks</h1>
+            <p>Formatação, upgrade de SSD, limpeza interna e reparos profissionais com atendimento rápido e garantia.</p>
             <div class="hero-buttons">
-                <a href="planos.html" class="btn btn-primary">Ver Planos</a>
-                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-secondary">Fale Conosco</a>
+                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-secondary">Falar no WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- Planos Section -->
+    <!-- Google Reviews Banner -->
+    <section class="reviews-banner">
+        <div class="container">
+            <div class="rating-large">
+                <div class="stars">★★★★★</div>
+                <div class="score">4.9</div>
+                <div class="count">mais de 100 avaliações no Google</div>
+            </div>
+            <div class="reviews-actions">
+                <a href="https://share.google/preYnPwDdV9wgRkB9" target="_blank" class="btn-google">
+                    <span>⭐</span> Ver avaliações no Google
+                </a>
+                <a href="https://g.page/r/CZp8jX_HGP9AEAE/review" target="_blank" class="btn-google">
+                    <span>✏️</span> Deixar uma avaliação
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Mini -->
+    <section class="stats-mini">
+        <div class="container">
+            <div class="stats-mini-grid">
+                <div class="stat-mini-item">
+                    <h3>1000+</h3>
+                    <p>atendimentos realizados</p>
+                </div>
+                <div class="stat-mini-item">
+                    <h3>4+</h3>
+                    <p>anos de experiência</p>
+                </div>
+                <div class="stat-mini-item">
+                    <h3>300+</h3>
+                    <p>clientes satisfeitos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Principais em Cards -->
+    <section class="services-highlight">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções completas para seu computador e notebook</p>
+            
+            <div class="services-grid-modern">
+                <div class="service-card-modern">
+                    <div class="service-icon-modern">💿</div>
+                    <h3>Formatação de Windows</h3>
+                    <p>Formatação completa com instalação de drivers, programas essenciais e otimização do sistema.</p>
+                </div>
+                
+                <div class="service-card-modern">
+                    <div class="service-icon-modern">⚡</div>
+                    <h3>Upgrade de SSD</h3>
+                    <p>Substitua seu HD por um SSD e deixe seu computador até 10x mais rápido. Inclui clonagem de dados.</p>
+                </div>
+                
+                <div class="service-card-modern">
+                    <div class="service-icon-modern">🧹</div>
+                    <h3>Limpeza interna</h3>
+                    <p>Limpeza completa, remoção de poeira e troca de pasta térmica para evitar superaquecimento.</p>
+                </div>
+                
+                <div class="service-card-modern">
+                    <div class="service-icon-modern">🔧</div>
+                    <h3>Reparo de placa-mãe</h3>
+                    <p>Diagnóstico e reparo profissional em placas-mãe de notebooks e computadores desktop.</p>
+                </div>
+                
+                <div class="service-card-modern">
+                    <div class="service-icon-modern">💻</div>
+                    <h3>Manutenção de notebooks</h3>
+                    <p>Reparo em telas, teclados, conectores de energia e todo tipo de problema em notebooks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos Section (mantida) -->
     <section class="main-services">
         <div class="container">
             <h2>Nossos Planos</h2>
             <p class="section-subtitle">Escolha o plano ideal para suas necessidades</p>
             
             <div class="planos-grid">
-                <!-- Plano Básico -->
                 <div class="service-card featured">
                     <div class="service-icon">🔰</div>
                     <h3>Atendimento Técnico Especializado</h3>
@@ -526,7 +677,6 @@
                     <a href="planos.html" class="btn btn-primary">Saiba mais</a>
                 </div>
 
-                <!-- Plano Profissional -->
                 <div class="service-card featured">
                     <div class="service-icon">💼</div>
                     <h3>Suporte Empresarial</h3>
@@ -534,7 +684,6 @@
                     <a href="planos.html" class="btn btn-primary">Saiba mais</a>
                 </div>
 
-                <!-- Plano Empresarial -->
                 <div class="service-card featured">
                     <div class="service-icon">🏢</div>
                     <h3>Gestão Completa de TI</h3>
@@ -549,96 +698,34 @@
         </div>
     </section>
 
-    <!-- Serviços Especializados -->
-    <section class="complementary-services">
+    <!-- Avaliações de Clientes -->
+    <section class="testimonials-section">
         <div class="container">
-            <h2>Serviços Especializados</h2>
-            <p class="section-subtitle">Soluções completas para manter sua tecnologia funcionando</p>
+            <h2>Avaliações de Clientes</h2>
+            <p class="section-subtitle">O que nossos clientes dizem sobre nosso trabalho</p>
             
-            <div class="services-grid">
-                <!-- Manutenção de Computadores -->
-                <div class="service-card dark">
-                    <div class="service-icon">💻</div>
-                    <h3>Manutenção de Computadores</h3>
-                    <ul>
-                        <li>Limpeza interna e externa</li>
-                        <li>Troca de componentes</li>
-                        <li>Otimização de performance</li>
-                    </ul>
-                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-text">"Atendimento rápido e eficiente. Levei meu notebook com tela quebrada e ficou perfeito. Preço justo e serviço de qualidade. Recomendo!"</div>
+                    <div class="testimonial-author">Carlos A.</div>
                 </div>
                 
-                <!-- Suporte Gamer -->
-                <div class="service-card dark">
-                    <div class="service-badge">Popular</div>
-                    <div class="service-icon">🎮</div>
-                    <h3>Suporte Gamer</h3>
-                    <ul>
-                        <li>Montagem de PC gamer</li>
-                        <li>Overclock seguro</li>
-                        <li>Otimização de jogos</li>
-                    </ul>
-                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-text">"Fiz upgrade de SSD no meu computador e ficou muito rápido. Além disso, fizeram backup de todos meus arquivos. Atendimento excelente!"</div>
+                    <div class="testimonial-author">Mariana S.</div>
                 </div>
                 
-                <!-- Suporte Remoto -->
-                <div class="service-card dark">
-                    <div class="service-icon">🌐</div>
-                    <h3>Suporte Remoto</h3>
-                    <ul>
-                        <li>Resolução de problemas</li>
-                        <li>Instalação de programas</li>
-                        <li>Remoção de vírus</li>
-                    </ul>
-                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
-                </div>
-
-                <!-- Manutenção de Impressoras -->
-                <div class="service-card dark">
-                    <div class="service-icon">🖨️</div>
-                    <h3>Manutenção de Impressoras</h3>
-                    <ul>
-                        <li>Limpeza de cabeças</li>
-                        <li>Troca de toners</li>
-                        <li>Configuração de rede</li>
-                    </ul>
-                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-text">"Sempre confio na InfoTech para resolver problemas de TI na minha empresa. Suporte rápido, profissional e com garantia. Melhor da região."</div>
+                    <div class="testimonial-author">João P.</div>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <a href="servicos.html" class="btn btn-outline">Ver Todos os Serviços</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <h2>Sobre a InfoTech</h2>
-                <p>Somos uma empresa especializada em suporte técnico e soluções tecnológicas, com mais de 4 anos de experiência no mercado. Nossa missão é evitar que você perca tempo com problemas de informática.</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>1000+</h3>
-                        <p>Atendimentos Realizados</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>4+</h3>
-                        <p>Anos de Experiência</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>300+</h3>
-                        <p>Clientes Satisfeitos</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>24/7</h3>
-                        <p>Suporte Disponível</p>
-                    </div>
-                </div>
-                
-                <a href="sobre.html" class="btn btn-primary">Conheça Nossa História</a>
+                <a href="https://share.google/preYnPwDdV9wgRkB9" target="_blank" class="btn btn-outline">Ver todas avaliações no Google</a>
             </div>
         </div>
     </section>
@@ -657,26 +744,45 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Melhorado -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <a href="index.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307">
+                <div class="footer-info">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307" style="height: 50px; width: auto;">
                                 <path fill="#70D800" d="M222.745285,239.754761 C246.537872,216.038010 270.079498,192.571945 293.621124,169.105896 C293.421875,168.717636 293.222626,168.329376 293.023376,167.941116 C284.604736,167.941116 276.183289,168.057663 267.769531,167.854858 C265.795441,167.807281 263.285004,167.251068 261.974579,165.960739 C249.271790,153.452545 236.770050,140.740097 224.224396,128.072617 C223.805557,127.649712 223.529282,127.085609 222.575073,125.698280 C225.200150,125.698280 226.938568,125.698280 228.677002,125.698280 C263.002350,125.698357 297.328217,125.776215 331.652100,125.552551 C334.432434,125.534431 337.732452,124.063713 339.869354,122.207161 C345.571930,117.252769 350.771851,111.719826 356.171539,106.416824 C355.959534,105.989998 355.747528,105.563179 355.535522,105.136353 C353.787567,105.136353 352.039581,105.136353 350.291595,105.136353 C302.302765,105.136360 254.313843,105.101982 206.325241,105.205635 C202.724503,105.213409 200.096313,104.278511 197.523666,101.681541 C185.107071,89.147591 172.499832,76.802490 159.012894,63.452721 C259.357056,63.452721 358.293274,63.452721 456.393646,63.452721 C387.390411,132.292953 317.910614,201.608643 248.779785,270.576172 C240.184494,262.019440 230.456482,252.335052 220.455856,242.379318 C220.817825,241.957809 221.656067,240.981628 222.745285,239.754761 Z"/>
                                 <path fill="#FDFDFD" d="M130.154877,93.845566 C159.887604,123.726234 189.369247,153.357986 218.434036,182.570740 C208.674072,192.375626 198.863022,202.231827 189.483292,211.654724 C140.371140,162.594177 90.702187,112.977386 40.639870,62.967648 C43.530575,62.967648 46.271526,62.967667 49.012474,62.967644 C64.507103,62.967514 80.003265,62.862083 95.494614,63.087418 C97.671600,63.119083 100.334152,64.241531 101.905914,65.757172 C111.378670,74.891678 120.598999,84.287964 130.154877,93.845566 Z"/>
                                 <path fill="#6FD401" d="M128.945892,58.444138 C128.946121,59.977589 128.946121,61.082783 128.946121,63.141567 C122.710358,57.057999 117.160370,51.687561 111.692055,46.235203 C111.187492,45.732128 111.009048,44.707996 111.006310,43.924664 C110.964531,31.952517 110.977226,19.980181 110.977226,7.517497 C113.155807,7.419791 114.932854,7.270594 116.709915,7.270365 C205.036148,7.258996 293.362427,7.299698 381.688416,7.154734 C386.563965,7.146732 387.960419,8.542521 387.744537,13.316285 C387.368500,21.631964 387.526855,29.979160 387.695557,38.308399 C387.760590,41.518925 386.778961,42.833031 383.437988,42.656193 C379.130524,42.428192 374.801880,42.600662 369.529968,42.600662 C369.529968,38.201607 369.346680,34.114761 369.585327,30.052706 C369.793457,26.509773 368.830505,25.052996 364.915039,25.058144 C287.588043,25.159840 210.260910,25.133030 132.933792,25.144915 C131.800659,25.145090 130.667557,25.304541 128.945648,25.433884 C128.945648,36.462723 128.945648,47.239300 128.945892,58.444138 Z"/>
                                 <path fill="#6FD401" d="M381.840363,284.091797 C343.763153,284.091766 306.164185,284.091766 268.565186,284.091766 C268.341461,283.733246 268.117706,283.374756 267.893951,283.016235 C273.370117,277.604309 278.732269,272.067047 284.422394,266.890259 C285.510010,265.900757 287.890289,266.140625 289.674774,266.137451 C313.997772,266.094482 338.320862,266.108521 362.643951,266.108551 C364.617828,266.108551 366.591705,266.108582 369.139618,266.108582 C369.285767,263.827606 369.512573,261.919586 369.514465,260.011353 C369.538452,235.521713 369.598755,211.031601 369.458771,186.542725 C369.436951,182.732498 370.530487,179.952499 373.325317,177.360962 C377.823456,173.190018 381.978821,168.649399 387.143768,163.383209 C387.143768,204.225449 387.143768,243.813232 387.143768,283.841370 C385.526123,283.925354 383.922363,284.008606 381.840363,284.091797 Z"/>
                                 <path fill="#70D601" d="M110.963837,179.010071 C110.963821,174.022583 110.963821,169.532761 110.963821,163.385651 C115.888924,168.283279 119.690781,172.538086 123.994522,176.203598 C127.905197,179.534332 129.113144,183.278595 129.056808,188.364395 C128.792969,212.186005 128.939636,236.012146 128.939651,259.836670 C128.939667,261.650757 128.939651,263.464844 128.939651,266.114624 C131.194458,266.114624 133.108521,266.114624 135.022583,266.114624 C159.680130,266.114685 184.338043,266.177765 208.994843,266.042603 C212.447266,266.023682 214.905930,267.011505 217.290237,269.495850 C221.649994,274.038574 226.364777,278.240601 230.931503,282.584686 C230.710999,282.944305 230.490494,283.303894 230.269974,283.663513 C190.783432,283.663513 151.296875,283.663513 110.963860,283.663513 C110.963860,248.981216 110.963860,214.244476 110.963837,179.010071 Z"/>
                             </svg>
-                            <span>InfoTech</span>
+                            <span style="color: var(--text-primary); font-size: 1.3rem; font-weight: 700;">InfoTech</span>
                         </a>
                     </div>
-                    <p>O melhor suporte técnico do Brasil. Evite perda de tempo com problemas de informática.</p>
+                    
+                    <p><i>📍</i> <strong>Endereço:</strong> Rua das Mangueiras, 2196 - Jardim dos Migrantes, Ji-Paraná/RO - 76900-708</p>
+                    <p><i>📞</i> <strong>Telefone/WhatsApp:</strong> (69) 99233-1200</p>
+                    <p><i>🌍</i> <strong>Áreas atendidas:</strong> Ji-Paraná e proximidades</p>
+                    
+                    <div class="business-hours">
+                        <h5>Horário de funcionamento</h5>
+                        <div class="hours-item">
+                            <span>Segunda a Sexta</span>
+                            <span>08:00–12:00 | 14:00–17:30</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sábado</span>
+                            <span>09:00–12:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Domingo</span>
+                            <span>Fechado</span>
+                        </div>
+                    </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Planos</h4>
@@ -702,29 +808,33 @@
                             <li><a href="sobre.html#historia">Nossa História</a></li>
                         </ul>
                     </div>
-                    <div class="footer-column">
-                        <h4>Contato</h4>
-                        <ul>
-                            <li><a href="mailto:Comercial@infotechthi.com">Comercial@infotechthi.com</a></li>
-                            <li><a href="tel:+5569992331200">(69) 99233-1200</a></li>
-                            <li>Rua das Mangueiras, 2196</li>
-                            <li>Jardim dos Migrantes</li>
-                            <li>Ji-Paraná/RO</li>
-                        </ul>
+                </div>
+
+                <div class="footer-info">
+                    <h4>Localização</h4>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.981315289132!2d-61.94447292421496!3d-10.88126088926008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93c9b2b5b5b5b5b5%3A0x0!2zMTDCsDUyJzUyLjUiUyA2McKwNTYnMzIuMiJX!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2021-2026 Infotech Informática. Todos os direitos reservados.</p>
+                <p>&copy; 2021-2026 Infotech Informática - Assistência Técnica em Ji-Paraná. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        📱
+    </a>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/widget-atendimento.js"></script>
     
-    <!-- Script do modo claro/escuro (corrigido) -->
+    <!-- Script do modo claro/escuro -->
     <script>
         (function() {
             function setTheme(theme) {
