@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBCYNCZFKP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PBCYNCZFKP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - InfoTech</title>
+    <meta name="description" content="Serviços de TI da InfoTech: manutenção de computadores, notebooks, impressoras, suporte gamer, suporte remoto e muito mais em Ji-Paraná.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* Ajustes para os cards de serviço */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Estilo para o badge de novo serviço */
+        .service-badge-new {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #70D800;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .service-card {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307" style="height:60px; width:auto; display:block;">
+                                <path fill="#70D800" d="M222.745285,239.754761 C246.537872,216.038010 270.079498,192.571945 293.621124,169.105896 C293.421875,168.717636 293.222626,168.329376 293.023376,167.941116 C284.604736,167.941116 276.183289,168.057663 267.769531,167.854858 C265.795441,167.807281 263.285004,167.251068 261.974579,165.960739 C249.271790,153.452545 236.770050,140.740097 224.224396,128.072617 C223.805557,127.649712 223.529282,127.085609 222.575073,125.698280 C225.200150,125.698280 226.938568,125.698280 228.677002,125.698280 C263.002350,125.698357 297.328217,125.776215 331.652100,125.552551 C334.432434,125.534431 337.732452,124.063713 339.869354,122.207161 C345.571930,117.252769 350.771851,111.719826 356.171539,106.416824 C355.959534,105.989998 355.747528,105.563179 355.535522,105.136353 C353.787567,105.136353 352.039581,105.136353 350.291595,105.136353 C302.302765,105.136360 254.313843,105.101982 206.325241,105.205635 C202.724503,105.213409 200.096313,104.278511 197.523666,101.681541 C185.107071,89.147591 172.499832,76.802490 159.012894,63.452721 C259.357056,63.452721 358.293274,63.452721 456.393646,63.452721 C387.390411,132.292953 317.910614,201.608643 248.779785,270.576172 C240.184494,262.019440 230.456482,252.335052 220.455856,242.379318 C220.817825,241.957809 221.656067,240.981628 222.745285,239.754761 Z"/>
+                                <path fill="#FDFDFD" d="M130.154877,93.845566 C159.887604,123.726234 189.369247,153.357986 218.434036,182.570740 C208.674072,192.375626 198.863022,202.231827 189.483292,211.654724 C140.371140,162.594177 90.702187,112.977386 40.639870,62.967648 C43.530575,62.967648 46.271526,62.967667 49.012474,62.967644 C64.507103,62.967514 80.003265,62.862083 95.494614,63.087418 C97.671600,63.119083 100.334152,64.241531 101.905914,65.757172 C111.378670,74.891678 120.598999,84.287964 130.154877,93.845566 Z"/>
+                                <path fill="#6FD401" d="M128.945892,58.444138 C128.946121,59.977589 128.946121,61.082783 128.946121,63.141567 C122.710358,57.057999 117.160370,51.687561 111.692055,46.235203 C111.187492,45.732128 111.009048,44.707996 111.006310,43.924664 C110.964531,31.952517 110.977226,19.980181 110.977226,7.517497 C113.155807,7.419791 114.932854,7.270594 116.709915,7.270365 C205.036148,7.258996 293.362427,7.299698 381.688416,7.154734 C386.563965,7.146732 387.960419,8.542521 387.744537,13.316285 C387.368500,21.631964 387.526855,29.979160 387.695557,38.308399 C387.760590,41.518925 386.778961,42.833031 383.437988,42.656193 C379.130524,42.428192 374.801880,42.600662 369.529968,42.600662 C369.529968,38.201607 369.346680,34.114761 369.585327,30.052706 C369.793457,26.509773 368.830505,25.052996 364.915039,25.058144 C287.588043,25.159840 210.260910,25.133030 132.933792,25.144915 C131.800659,25.145090 130.667557,25.304541 128.945648,25.433884 C128.945648,36.462723 128.945648,47.239300 128.945892,58.444138 Z"/>
+                                <path fill="#6FD401" d="M381.840363,284.091797 C343.763153,284.091766 306.164185,284.091766 268.565186,284.091766 C268.341461,283.733246 268.117706,283.374756 267.893951,283.016235 C273.370117,277.604309 278.732269,272.067047 284.422394,266.890259 C285.510010,265.900757 287.890289,266.140625 289.674774,266.137451 C313.997772,266.094482 338.320862,266.108521 362.643951,266.108551 C364.617828,266.108551 366.591705,266.108582 369.139618,266.108582 C369.285767,263.827606 369.512573,261.919586 369.514465,260.011353 C369.538452,235.521713 369.598755,211.031601 369.458771,186.542725 C369.436951,182.732498 370.530487,179.952499 373.325317,177.360962 C377.823456,173.190018 381.978821,168.649399 387.143768,163.383209 C387.143768,204.225449 387.143768,243.813232 387.143768,283.841370 C385.526123,283.925354 383.922363,284.008606 381.840363,284.091797 Z"/>
+                                <path fill="#70D601" d="M110.963837,179.010071 C110.963821,174.022583 110.963821,169.532761 110.963821,163.385651 C115.888924,168.283279 119.690781,172.538086 123.994522,176.203598 C127.905197,179.534332 129.113144,183.278595 129.056808,188.364395 C128.792969,212.186005 128.939636,236.012146 128.939651,259.836670 C128.939667,261.650757 128.939651,263.464844 128.939651,266.114624 C131.194458,266.114624 133.108521,266.114624 135.022583,266.114624 C159.680130,266.114685 184.338043,266.177765 208.994843,266.042603 C212.447266,266.023682 214.905930,267.011505 217.290237,269.495850 C221.649994,274.038574 226.364777,278.240601 230.931503,282.584686 C230.710999,282.944305 230.490494,283.303894 230.269974,283.663513 C190.783432,283.663513 151.296875,283.663513 110.963860,283.663513 C110.963860,248.981216 110.963860,214.244476 110.963837,179.010071 Z"/>
+                            </svg>
+                            <span style="color: #ffffff; font-size: 1.5rem; font-weight: 700;">InfoTech</span>
+                        </a>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="planos.html" class="nav-link">Planos</a></li>
+                    <li><a href="servicos.html" class="nav-link active">Serviços</a></li>
+                    <li><a href="suporte.html" class="nav-link">Suporte Remoto</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-primary">Fale Conosco</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🔧 Serviços Especializados</div>
+                <h1>Nossos Serviços de TI</h1>
+                <p>Oferecemos uma ampla gama de serviços especializados em tecnologia da informação para atender todas as suas necessidades digitais com excelência e profissionalismo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Principais -->
+    <section class="main-services">
+        <div class="container">
+            <h2>Serviços Principais</h2>
+            <p class="section-subtitle">Soluções completas para manter sua tecnologia sempre funcionando</p>
+            
+            <div class="services-grid">
+                <!-- Manutenção de Computadores -->
+                <div class="service-card featured">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Manutenção de Computadores</h3>
+                    <p>Serviços completos de manutenção preventiva e corretiva para computadores desktop e workstations.</p>
+                    
+                    <div class="service-features">
+                        <h4>O que inclui:</h4>
+                        <ul>
+                            <li>✓ Limpeza interna e externa</li>
+                            <li>✓ Troca de componentes defeituosos</li>
+                            <li>✓ Otimização de performance</li>
+                            <li>✓ Instalação de software</li>
+                            <li>✓ Backup de dados</li>
+                            <li>✓ Diagnóstico completo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <span class="price">A partir de R$ 60</span>
+                        <span class="price-note">Realizamos Diagnóstico</span>
+                    </div>
+                    
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20um%20orçamento%20para%20manutenção%20de%20computador" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                </div>
+
+                <!-- Suporte Gamer -->
+                <div class="service-card featured">
+                    <div class="service-icon">🎮</div>
+                    <h3>Suporte Gamer</h3>
+                    <p>Especialistas em montagem, otimização e manutenção de PCs gamers para máxima performance.</p>
+                    
+                    <div class="service-features">
+                        <h4>O que inclui:</h4>
+                        <ul>
+                            <li>✓ Montagem de PC gamer</li>
+                            <li>✓ Overclock seguro</li>
+                            <li>✓ Otimização de jogos</li>
+                            <li>✓ Instalação de drivers</li>
+                            <li>✓ Configuração de RGB</li>
+                            <li>✓ Teste de stress</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <span class="price">A partir de R$ 150</span>
+                        <span class="price-note">Consultoria incluída</span>
+                    </div>
+                    
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20um%20orçamento%20para%20suporte%20gamer" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                </div>
+
+                <!-- Manutenção de Notebooks -->
+                <div class="service-card featured">
+                    <div class="service-icon">💻</div>
+                    <h3>Manutenção de Notebooks</h3>
+                    <p>Serviços especializados em notebooks com técnicas avançadas e peças originais.</p>
+                    
+                    <div class="service-features">
+                        <h4>O que inclui:</h4>
+                        <ul>
+                            <li>✓ Troca de tela e teclado</li>
+                            <li>✓ Reparo de placa-mãe</li>
+                            <li>✓ Upgrade de memória/SSD</li>
+                            <li>✓ Limpeza do sistema de refrigeração</li>
+                            <li>✓ Reparo de conectores</li>
+                            <li>✓ Recuperação de dados</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <span class="price">A partir de R$ 100</span>
+                        <span class="price-note">Fazemos Orçamento</span>
+                    </div>
+                    
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20um%20orçamento%20para%20manutenção%20de%20notebook" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                </div>
+
+                <!-- Manutenção de Impressoras -->
+                <div class="service-card featured">
+                    <div class="service-icon">🖨️</div>
+                    <h3>Manutenção de Impressoras</h3>
+                    <p>Manutenção completa em impressoras jato de tinta, laser e multifuncionais de todas as marcas.</p>
+                    
+                    <div class="service-features">
+                        <h4>O que inclui:</h4>
+                        <ul>
+                            <li>✓ Limpeza de cabeças de impressão</li>
+                            <li>✓ Troca de cartuchos e toners</li>
+                            <li>✓ Reparo de mecanismos</li>
+                            <li>✓ Configuração de rede</li>
+                            <li>✓ Instalação de drivers</li>
+                            <li>✓ Calibração de cores</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <span class="price">A partir de R$ 100</span>
+                        <span class="price-note">Visita técnica</span>
+                    </div>
+                    
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20um%20orçamento%20para%20manutenção%20de%20impressora" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                </div>
+
+                <!-- Suporte Remoto -->
+                <div class="service-card featured">
+                    <div class="service-icon">🌐</div>
+                    <h3>Suporte Remoto</h3>
+                    <p>Atendimento técnico à distância para resolver problemas rapidamente sem sair de casa.</p>
+                    
+                    <div class="service-features">
+                        <h4>O que inclui:</h4>
+                        <ul>
+                            <li>✓ Resolução de problemas de software</li>
+                            <li>✓ Instalação de programas</li>
+                            <li>✓ Configuração de sistemas</li>
+                            <li>✓ Remoção de vírus</li>
+                            <li>✓ Backup de arquivos</li>
+                            <li>✓ Treinamento de usuários</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <span class="price">A partir de R$ 50</span>
+                        <span class="price-note">Atendimento Horário Comercial</span>
+                    </div>
+                    
+                    <!-- BOTÃO CORRIGIDO: Agora vai para a página de suporte -->
+                    <a href="suporte.html" class="btn btn-primary">Acessar Suporte Remoto</a>
+                </div>
+
+                <!-- NOVO: Manutenção de Nobreaks -->
+                <div class="service-card featured">
+                    <div class="service-badge-new">Novo</div>
+                    <div class="service-icon">⚡</div>
+                    <h3>Manutenção de Nobreaks</h3>
+                    <p>Especialistas em reparo e manutenção de nobreaks e estabilizadores para proteger seus equipamentos.</p>
+                    
+                    <div class="service-features">
+                        <h4>O que inclui:</h4>
+                        <ul>
+                            <li>✓ Troca de baterias</li>
+                            <li>✓ Reparo de placas internas</li>
+                            <li>✓ Teste de autonomia</li>
+                            <li>✓ Limpeza interna</li>
+                            <li>✓ Verificação de tensão</li>
+                            <li>✓ Laudo técnico</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <span class="price">A partir de R$ 80</span>
+                        <span class="price-note">Troca de baterias</span>
+                    </div>
+                    
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20um%20orçamento%20para%20manutenção%20de%20nobreak" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Adicionais -->
+    <section class="additional-services">
+        <div class="container">
+            <h2>Serviços Adicionais</h2>
+            <p class="section-subtitle">Soluções complementares para uma experiência completa</p>
+            
+            <div class="services-grid">
+                <!-- Segurança Digital -->
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Segurança Digital</h3>
+                    <p>Proteção completa contra vírus, malware e ameaças digitais.</p>
+                    <ul>
+                        <li>Instalação de antivírus</li>
+                        <li>Configuração de firewall</li>
+                        <li>Auditoria de segurança</li>
+                    </ul>
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20saber%20mais%20sobre%20Segurança%20Digital" target="_blank" class="btn btn-outline">Saiba Mais</a>
+                </div>
+                
+                <!-- Backup em Nuvem -->
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Backup em Nuvem</h3>
+                    <p>Soluções de backup automático para proteger seus dados importantes.</p>
+                    <ul>
+                        <li>Configuração de backup automático</li>
+                        <li>Sincronização de arquivos</li>
+                        <li>Recuperação de dados</li>
+                    </ul>
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20saber%20mais%20sobre%20Backup%20em%20Nuvem" target="_blank" class="btn btn-outline">Saiba Mais</a>
+                </div>
+                
+                <!-- Configuração de Rede -->
+                <div class="service-card">
+                    <div class="service-icon">📡</div>
+                    <h3>Configuração de Rede</h3>
+                    <p>Instalação e configuração de redes domésticas e empresariais.</p>
+                    <ul>
+                        <li>Instalação de roteadores</li>
+                        <li>Configuração Wi-Fi</li>
+                        <li>Otimização de velocidade</li>
+                    </ul>
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20saber%20mais%20sobre%20Configuração%20de%20Rede" target="_blank" class="btn btn-outline">Saiba Mais</a>
+                </div>
+                
+                <!-- Instalação de Programas -->
+                <div class="service-card">
+                    <div class="service-icon">🧑‍💻</div>
+                    <h3>Instalação de Programas</h3>
+                    <p>Suporte rápido e eficaz para instalação de softwares.</p>
+                    <ul>
+                        <li>Programas específicos</li>
+                        <li>Pacote Office</li>
+                        <li>Softwares profissionais</li>
+                    </ul>
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20saber%20mais%20sobre%20Instalação%20de%20Programas" target="_blank" class="btn btn-outline">Saiba Mais</a>
+                </div>
+                
+                <!-- Otimização de Performance -->
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Otimização de Performance</h3>
+                    <p>Melhore a velocidade e performance do seu computador.</p>
+                    <ul>
+                        <li>Limpeza de arquivos temporários</li>
+                        <li>Desfragmentação de disco</li>
+                        <li>Otimização de inicialização</li>
+                    </ul>
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20saber%20mais%20sobre%20Otimização%20de%20Performance" target="_blank" class="btn btn-outline">Saiba Mais</a>
+                </div>
+                
+                <!-- Consultoria Técnica -->
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Consultoria Técnica</h3>
+                    <p>Orientação especializada para escolha de equipamentos e soluções.</p>
+                    <ul>
+                        <li>Análise de necessidades</li>
+                        <li>Recomendação de equipamentos</li>
+                        <li>Planejamento de upgrades</li>
+                    </ul>
+                    <a href="https://wa.me/5569992331200?text=Olá,%20quero%20saber%20mais%20sobre%20Consultoria%20Técnica" target="_blank" class="btn btn-outline">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="service-process">
+        <div class="container">
+            <h2>Como Funciona Nosso Atendimento</h2>
+            <p class="section-subtitle">Processo simples e eficiente para resolver seus problemas</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Contato Inicial</h3>
+                    <p>Entre em contato conosco via telefone, WhatsApp ou formulário online descrevendo seu problema.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Realizamos um diagnóstico completo para identificar a causa do problema e definir a melhor solução.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Orçamento</h3>
+                    <p>Apresentamos um orçamento detalhado com prazo de execução e garantia do serviço.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Execução</h3>
+                    <p>Após aprovação, executamos o serviço com qualidade e agilidade, mantendo você informado.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Entrega e Garantia</h3>
+                    <p>Entregamos o equipamento funcionando perfeitamente com garantia e suporte pós-venda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por Que Escolher a InfoTech -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Por Que Escolher a InfoTech?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Atendimento Rápido</h3>
+                    <p>Resposta em até 2 horas e atendimento emergencial 24/7 para casos urgentes.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Técnicos Especializados</h3>
+                    <p>Equipe certificada com mais de 4 anos de experiência em diversas tecnologias.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Garantia Total</h3>
+                    <p>Todos os serviços possuem garantia e suporte pós-venda para sua tranquilidade.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Preços Justos</h3>
+                    <p>Orçamentos transparentes sem taxas ocultas e preços competitivos no mercado.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">🏠</div>
+                    <h3>Atendimento Domiciliar</h3>
+                    <p>Vamos até você para maior comodidade, ou atendimento remoto quando possível.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">📞</div>
+                    <h3>Suporte Contínuo</h3>
+                    <p>Relacionamento duradouro com suporte técnico sempre que você precisar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contato" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Precisa de Ajuda com Tecnologia?</h2>
+                <p>Nossa equipe está pronta para resolver seus problemas de informática com rapidez e eficiência. Entre em contato agora mesmo!</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+                    <a href="tel:+5569992331200" class="btn btn-secondary">Ligar Agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Organizado -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Sobre a InfoTech -->
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307" style="height:50px; width:auto; display:block;">
+                                <path fill="#70D800" d="M222.745285,239.754761 C246.537872,216.038010 270.079498,192.571945 293.621124,169.105896 C293.421875,168.717636 293.222626,168.329376 293.023376,167.941116 C284.604736,167.941116 276.183289,168.057663 267.769531,167.854858 C265.795441,167.807281 263.285004,167.251068 261.974579,165.960739 C249.271790,153.452545 236.770050,140.740097 224.224396,128.072617 C223.805557,127.649712 223.529282,127.085609 222.575073,125.698280 C225.200150,125.698280 226.938568,125.698280 228.677002,125.698280 C263.002350,125.698357 297.328217,125.776215 331.652100,125.552551 C334.432434,125.534431 337.732452,124.063713 339.869354,122.207161 C345.571930,117.252769 350.771851,111.719826 356.171539,106.416824 C355.959534,105.989998 355.747528,105.563179 355.535522,105.136353 C353.787567,105.136353 352.039581,105.136353 350.291595,105.136353 C302.302765,105.136360 254.313843,105.101982 206.325241,105.205635 C202.724503,105.213409 200.096313,104.278511 197.523666,101.681541 C185.107071,89.147591 172.499832,76.802490 159.012894,63.452721 C259.357056,63.452721 358.293274,63.452721 456.393646,63.452721 C387.390411,132.292953 317.910614,201.608643 248.779785,270.576172 C240.184494,262.019440 230.456482,252.335052 220.455856,242.379318 C220.817825,241.957809 221.656067,240.981628 222.745285,239.754761 Z"/>
+                                <path fill="#FDFDFD" d="M130.154877,93.845566 C159.887604,123.726234 189.369247,153.357986 218.434036,182.570740 C208.674072,192.375626 198.863022,202.231827 189.483292,211.654724 C140.371140,162.594177 90.702187,112.977386 40.639870,62.967648 C43.530575,62.967648 46.271526,62.967667 49.012474,62.967644 C64.507103,62.967514 80.003265,62.862083 95.494614,63.087418 C97.671600,63.119083 100.334152,64.241531 101.905914,65.757172 C111.378670,74.891678 120.598999,84.287964 130.154877,93.845566 Z"/>
+                                <path fill="#6FD401" d="M128.945892,58.444138 C128.946121,59.977589 128.946121,61.082783 128.946121,63.141567 C122.710358,57.057999 117.160370,51.687561 111.692055,46.235203 C111.187492,45.732128 111.009048,44.707996 111.006310,43.924664 C110.964531,31.952517 110.977226,19.980181 110.977226,7.517497 C113.155807,7.419791 114.932854,7.270594 116.709915,7.270365 C205.036148,7.258996 293.362427,7.299698 381.688416,7.154734 C386.563965,7.146732 387.960419,8.542521 387.744537,13.316285 C387.368500,21.631964 387.526855,29.979160 387.695557,38.308399 C387.760590,41.518925 386.778961,42.833031 383.437988,42.656193 C379.130524,42.428192 374.801880,42.600662 369.529968,42.600662 C369.529968,38.201607 369.346680,34.114761 369.585327,30.052706 C369.793457,26.509773 368.830505,25.052996 364.915039,25.058144 C287.588043,25.159840 210.260910,25.133030 132.933792,25.144915 C131.800659,25.145090 130.667557,25.304541 128.945648,25.433884 C128.945648,36.462723 128.945648,47.239300 128.945892,58.444138 Z"/>
+                                <path fill="#6FD401" d="M381.840363,284.091797 C343.763153,284.091766 306.164185,284.091766 268.565186,284.091766 C268.341461,283.733246 268.117706,283.374756 267.893951,283.016235 C273.370117,277.604309 278.732269,272.067047 284.422394,266.890259 C285.510010,265.900757 287.890289,266.140625 289.674774,266.137451 C313.997772,266.094482 338.320862,266.108521 362.643951,266.108551 C364.617828,266.108551 366.591705,266.108582 369.139618,266.108582 C369.285767,263.827606 369.512573,261.919586 369.514465,260.011353 C369.538452,235.521713 369.598755,211.031601 369.458771,186.542725 C369.436951,182.732498 370.530487,179.952499 373.325317,177.360962 C377.823456,173.190018 381.978821,168.649399 387.143768,163.383209 C387.143768,204.225449 387.143768,243.813232 387.143768,283.841370 C385.526123,283.925354 383.922363,284.008606 381.840363,284.091797 Z"/>
+                                <path fill="#70D601" d="M110.963837,179.010071 C110.963821,174.022583 110.963821,169.532761 110.963821,163.385651 C115.888924,168.283279 119.690781,172.538086 123.994522,176.203598 C127.905197,179.534332 129.113144,183.278595 129.056808,188.364395 C128.792969,212.186005 128.939636,236.012146 128.939651,259.836670 C128.939667,261.650757 128.939651,263.464844 128.939651,266.114624 C131.194458,266.114624 133.108521,266.114624 135.022583,266.114624 C159.680130,266.114685 184.338043,266.177765 208.994843,266.042603 C212.447266,266.023682 214.905930,267.011505 217.290237,269.495850 C221.649994,274.038574 226.364777,278.240601 230.931503,282.584686 C230.710999,282.944305 230.490494,283.303894 230.269974,283.663513 C190.783432,283.663513 151.296875,283.663513 110.963860,283.663513 C110.963860,248.981216 110.963860,214.244476 110.963837,179.010071 Z"/>
+                            </svg>
+                            <span style="color: #fff; font-size: 1.3rem; font-weight: 700;">InfoTech</span>
+                        </a>
+                    </div>
+                    <p>O melhor suporte técnico do Brasil. Evite perda de tempo com problemas de informática.</p>
+                </div>
+                
+                <!-- Links do Footer -->
+                <div class="footer-links">
+                    <!-- Planos -->
+                    <div class="footer-column">
+                        <h4>Planos</h4>
+                        <ul>
+                            <li><a href="planos.html#basico">Plano Básico</a></li>
+                            <li><a href="planos.html#profissional">Plano Profissional</a></li>
+                            <li><a href="planos.html#empresarial">Plano Empresarial</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Serviços -->
+                    <div class="footer-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="servicos.html">Manutenção de Computadores</a></li>
+                            <li><a href="servicos.html">Suporte Gamer</a></li>
+                            <li><a href="servicos.html">Manutenção de Notebooks</a></li>
+                            <li><a href="servicos.html">Manutenção de Impressoras</a></li>
+                            <li><a href="servicos.html">Suporte Remoto</a></li>
+                            <li><a href="servicos.html">Manutenção de Nobreaks</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Empresa -->
+                    <div class="footer-column">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre Nós</a></li>
+                            <li><a href="sobre.html#equipe">Nossa Equipe</a></li>
+                            <li><a href="sobre.html#historia">Nossa História</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contato -->
+                    <div class="footer-column">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="mailto:Comercial@infotechthi.com">Comercial@infotechthi.com</a></li>
+                            <li><a href="tel:+5569992331200">(69) 99233-1200</a></li>
+                            <li>Rua das Mangueiras, 2196</li>
+                            <li>Jardim dos Migrantes</li>
+                            <li>Ji-Paraná/RO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2021-2026 Infotech Informática. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Widget de Atendimento InfoTech - ADICIONADO -->
+    <script src="js/widget-atendimento.js"></script>
+</body>
+</html>
