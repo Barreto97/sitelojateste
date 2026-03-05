@@ -220,6 +220,45 @@
             background: var(--dark-bg);
         }
 
+        .testimonials-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .testimonials-header h2 {
+            margin-bottom: 0;
+        }
+
+        .rating-badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .rating-badge .stars {
+            color: #ffbb00;
+            font-size: 1.2rem;
+        }
+
+        .rating-badge .score {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .rating-badge .count {
+            color: var(--text-secondary);
+        }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -267,6 +306,48 @@
             height: 20px;
             background: var(--primary-green);
             border-radius: 2px;
+        }
+
+        /* Botões de Avaliação */
+        .review-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn-review {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-review:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .btn-review-primary {
+            background: var(--primary-green);
+            color: #000;
+            border: 1px solid var(--primary-green);
+        }
+
+        .btn-review-primary:hover {
+            background: #6BC91A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(112,216,0,0.3);
+            color: #000;
         }
 
         /* About Section */
@@ -596,6 +677,22 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            .review-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-review {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .testimonials-header {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -798,10 +895,17 @@
         </div>
     </section>
 
-    <!-- Avaliações de Clientes -->
+    <!-- Avaliações de Clientes - COM SELO 5.0 E BOTÕES -->
     <section class="testimonials-section">
         <div class="container">
-            <h2>Avaliações de Clientes</h2>
+            <div class="testimonials-header">
+                <h2>Avaliações de Clientes</h2>
+                <div class="rating-badge">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <span class="score">5.0</span>
+                    <span class="count">(100+ avaliações)</span>
+                </div>
+            </div>
             <p class="section-subtitle">O que nossos clientes dizem sobre nosso trabalho</p>
             
             <div class="testimonials-grid">
@@ -822,6 +926,16 @@
                     <div class="testimonial-text">"Sempre confio na InfoTech para resolver problemas de TI na minha empresa. Suporte rápido, profissional e com garantia. Melhor da região."</div>
                     <div class="testimonial-author">João P.</div>
                 </div>
+            </div>
+            
+            <!-- Botões de avaliação -->
+            <div class="review-buttons">
+                <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-review">
+                    <span>★</span> Ver avaliações no Google
+                </a>
+                <a href="https://search.google.com/local/writereview?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-review btn-review-primary">
+                    <span>✏️</span> Deixar uma avaliação
+                </a>
             </div>
         </div>
     </section>
