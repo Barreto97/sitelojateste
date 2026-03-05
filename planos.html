@@ -72,6 +72,22 @@
             background: var(--darker-bg);
         }
 
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+
         .planos-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -202,24 +218,14 @@
             background: var(--dark-bg);
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-        }
-
         .tabela-wrapper {
             overflow-x: auto;
             background: var(--card-bg);
             border-radius: 16px;
             border: 1px solid var(--border-color);
             margin-top: 40px;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
         }
 
         table {
@@ -366,8 +372,77 @@
             }
         }
 
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h3, .footer-info h4 {
+            color: var(--primary-green);
+        }
+
+        .footer-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .footer-info a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         /* Responsividade */
         @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
             .planos-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -479,6 +554,9 @@
     <!-- Planos Section -->
     <section class="planos-section">
         <div class="container">
+            <h2 class="section-title">Nossos Planos</h2>
+            <p class="section-subtitle">Escolha o plano ideal para suas necessidades</p>
+            
             <div class="planos-grid">
                 <!-- Plano Básico -->
                 <div class="plano-card" id="basico">
@@ -642,7 +720,7 @@
     <!-- Footer no padrão da imagem -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content" style="grid-template-columns: 1.5fr 1fr 1fr; gap: 30px;">
+            <div class="footer-content">
                 <!-- Coluna 1: Informações da Empresa -->
                 <div class="footer-info">
                     <h3 style="color: var(--primary-green); margin-bottom: 15px; font-size: 1.2rem;">InfoTech</h3>
@@ -690,8 +768,8 @@
             </div>
             
             <!-- Copyright -->
-            <div style="text-align: center; padding-top: 30px; border-top: 1px solid var(--border-color); margin-top: 30px;">
-                <p style="color: var(--text-muted); font-size: 0.9rem;">© 2021-2026 Infotech Informática - Assistência Técnica em Ji-Paraná. Todos os direitos reservados.</p>
+            <div class="footer-bottom">
+                <p>© 2021-2026 Infotech Informática - Assistência Técnica em Ji-Paraná. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
