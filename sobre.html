@@ -463,7 +463,14 @@
                     <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
 
-                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-primary">Fale Conosco</a>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <!-- Botão de alternância de tema -->
+                    <button class="theme-toggle" aria-label="Alternar modo claro/escuro">
+                        <span class="icon">☀️</span>
+                    </button>
+                    <!-- Botão Fale Conosco -->
+                    <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-primary">Fale Conosco</a>
+                </div>
 
                 <div class="hamburger">
                     <span></span>
@@ -727,35 +734,77 @@
     <script src="js/main.js"></script>
     <script src="js/widget-atendimento.js"></script>
     
-    <!-- Menu hamburger script adicional para garantir -->
+    <!-- Script do modo claro/escuro e menu hamburger -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
+        (function() {
+            // Função para definir o tema
+            function setTheme(theme) {
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    document.querySelectorAll('.theme-toggle .icon').forEach(icon => {
+                        icon.textContent = '🌙';
+                    });
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.querySelectorAll('.theme-toggle .icon').forEach(icon => {
+                        icon.textContent = '☀️';
+                    });
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Inicializar quando o DOM carregar
+            document.addEventListener('DOMContentLoaded', function() {
+                // Menu hamburger
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
                 
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', function() {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
+                if (hamburger && navMenu) {
+                    hamburger.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        hamburger.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+                    });
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.addEventListener('click', function() {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        });
+                    });
+                    
+                    document.addEventListener('click', function(e) {
+                        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        }
+                    });
+                }
+
+                // Tema
+                const themeToggles = document.querySelectorAll('.theme-toggle');
+                
+                if (themeToggles.length === 0) return;
+
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+                if (savedTheme) {
+                    setTheme(savedTheme);
+                } else {
+                    setTheme(prefersDark ? 'dark' : 'light');
+                }
+
+                themeToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const isLight = document.body.classList.contains('light-mode');
+                        setTheme(isLight ? 'dark' : 'light');
                     });
                 });
-                
-                document.addEventListener('click', function(e) {
-                    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    }
-                });
-            }
-        });
+            });
+        })();
     </script>
 </body>
 </html>
