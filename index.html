@@ -30,36 +30,9 @@
     <style>
         /* ===== ESTILOS GLOBAIS MELHORADOS ===== */
         
-        /* Top Trust Bar */
-        .trust-bar {
-            background: var(--primary-green);
-            color: #000;
-            padding: 8px 0;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-            position: relative;
-            z-index: 1001;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .trust-bar .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .trust-bar span {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Hero Section Melhorado */
+        /* Hero Section - Textos Originais */
         .hero {
-            padding: 120px 0 80px;
+            padding: 150px 0 80px;
             background: var(--gradient-bg);
             text-align: center;
         }
@@ -322,31 +295,6 @@
             font-size: 0.9rem;
         }
 
-        /* WhatsApp Float Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-
         /* Footer Melhorado */
         .footer {
             background: var(--footer-bg);
@@ -451,6 +399,18 @@
             font-size: 0.9rem;
         }
 
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsividade */
         @media (max-width: 968px) {
             .footer-content {
@@ -465,7 +425,7 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 100px 0 60px;
+                padding: 120px 0 60px;
             }
 
             .hero h1 {
@@ -490,14 +450,6 @@
                 flex: 1;
                 justify-content: center;
             }
-
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -520,15 +472,6 @@
     </style>
 </head>
 <body>
-    <!-- Trust Bar -->
-    <div class="trust-bar">
-        <div class="container">
-            <span>⭐ 4.9 no Google</span>
-            <span>📊 100+ avaliações de clientes</span>
-            <span>🔧 Assistência técnica especializada</span>
-        </div>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
@@ -571,15 +514,15 @@
         </nav>
     </header>
 
-    <!-- Hero Section Melhorado -->
+    <!-- Hero Section - Textos Originais -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">🔧 Assistência Técnica Especializada</div>
-            <h1>Assistência Técnica Especializada em Computadores e Notebooks</h1>
-            <p>Formatação, upgrade de SSD, limpeza interna e reparos profissionais com atendimento rápido e garantia.</p>
+            <div class="hero-badge">🚀 Melhor Suporte do Brasil</div>
+            <h1>Evite Perda de Tempo com Problemas de Informática</h1>
+            <p>Tenha o melhor suporte técnico especializado. Oferecemos consultoria em TI, suporte remoto e soluções personalizadas para manter seus sistemas sempre funcionando.</p>
             <div class="hero-buttons">
-                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
-                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-secondary">Falar no WhatsApp</a>
+                <a href="planos.html" class="btn btn-primary">Ver Planos</a>
+                <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-secondary">Fale Conosco</a>
             </div>
         </div>
     </section>
@@ -589,14 +532,14 @@
         <div class="container">
             <div class="rating-large">
                 <div class="stars">★★★★★</div>
-                <div class="score">4.9</div>
-                <div class="count">mais de 100 avaliações no Google</div>
+                <div class="score">5.0</div>
+                <div class="count">avaliações no Google</div>
             </div>
             <div class="reviews-actions">
-                <a href="https://share.google/preYnPwDdV9wgRkB9" target="_blank" class="btn-google">
+                <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-google">
                     <span>⭐</span> Ver avaliações no Google
                 </a>
-                <a href="https://g.page/r/CZp8jX_HGP9AEAE/review" target="_blank" class="btn-google">
+                <a href="https://search.google.com/local/writereview?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-google">
                     <span>✏️</span> Deixar uma avaliação
                 </a>
             </div>
@@ -725,7 +668,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <a href="https://share.google/preYnPwDdV9wgRkB9" target="_blank" class="btn btn-outline">Ver todas avaliações no Google</a>
+                <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn btn-outline">Ver todas avaliações no Google</a>
             </div>
         </div>
     </section>
@@ -744,7 +687,7 @@
         </div>
     </section>
 
-    <!-- Footer Melhorado -->
+    <!-- Footer Melhorado com Localização Correta -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -765,6 +708,7 @@
                     <p><i>📍</i> <strong>Endereço:</strong> Rua das Mangueiras, 2196 - Jardim dos Migrantes, Ji-Paraná/RO - 76900-708</p>
                     <p><i>📞</i> <strong>Telefone/WhatsApp:</strong> (69) 99233-1200</p>
                     <p><i>🌍</i> <strong>Áreas atendidas:</strong> Ji-Paraná e proximidades</p>
+                    <p><i>🌐</i> <strong>Site:</strong> <a href="https://infotechti.com" target="_blank" style="color: var(--primary-green);">infotechti.com</a></p>
                     
                     <div class="business-hours">
                         <h5>Horário de funcionamento</h5>
@@ -813,9 +757,17 @@
                 <div class="footer-info">
                     <h4>Localização</h4>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.981315289132!2d-61.94447292421496!3d-10.88126088926008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93c9b2b5b5b5b5b5%3A0x0!2zMTDCsDUyJzUyLjUiUyA2McKwNTYnMzIuMiJX!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.981315289132!2d-61.94447292421496!3d-10.88126088926008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93c9b306e11b9bc5%3A0xfc3996ee07c05562!2sInfotech%20Inform%C3%A1tica!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Mapa da Infotech Informática">
+                        </iframe>
                     </div>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">
+                        <a href="https://maps.app.goo.gl/YR4enmhAQEX1EMp2A" target="_blank" style="color: var(--primary-green);">Abrir no Google Maps</a>
+                    </p>
                 </div>
             </div>
             
@@ -824,11 +776,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
-        📱
-    </a>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
