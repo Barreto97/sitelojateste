@@ -28,9 +28,9 @@
     <link rel="stylesheet" href="css/styles.css">
     
     <style>
-        /* ===== ESTILOS GLOBAIS MELHORADOS ===== */
+        /* ===== ESTILOS GLOBAIS ===== */
         
-        /* Hero Section - Textos Originais */
+        /* Hero Section */
         .hero {
             padding: 150px 0 80px;
             background: var(--gradient-bg);
@@ -147,67 +147,136 @@
             transform: translateY(-2px);
         }
 
-        /* Serviços Cards Melhorados */
-        .services-highlight {
-            padding: 80px 0;
-            background: var(--darker-bg);
-        }
-
-        .services-grid-modern {
+        /* Serviços Antigos (mantidos) */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-top: 40px;
         }
 
-        .service-card-modern {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+        .service-card.dark {
+            background: var(--darker-bg);
             padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
         }
 
-        .service-card-modern:hover {
+        .service-card.dark:nth-child(1) { animation-delay: 0.1s; }
+        .service-card.dark:nth-child(2) { animation-delay: 0.15s; }
+        .service-card.dark:nth-child(3) { animation-delay: 0.2s; }
+        .service-card.dark:nth-child(4) { animation-delay: 0.25s; }
+
+        .service-card.dark:hover {
             border-color: var(--primary-green);
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(112,216,0,0.1);
         }
 
-        .service-card-modern::before {
+        .service-card.dark::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), transparent);
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(112,216,0,0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .service-icon-modern {
+        .service-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ff4757;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .service-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: rgba(112,216,0,0.1);
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
         }
 
-        .service-card-modern h3 {
+        .service-card.dark h3 {
             color: var(--primary-green);
             font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
 
-        .service-card-modern p {
+        .service-card.dark ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-card.dark li {
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card.dark li::before {
+            content: "✓";
+            color: var(--primary-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .service-card.dark .btn {
+            margin-top: auto;
+        }
+
+        /* Planos Section */
+        .planos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card.featured {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .service-card.featured:nth-child(1) { animation-delay: 0.1s; }
+        .service-card.featured:nth-child(2) { animation-delay: 0.2s; }
+        .service-card.featured:nth-child(3) { animation-delay: 0.3s; }
+
+        .service-card.featured:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(112,216,0,0.15);
+        }
+
+        .service-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(112,216,0,0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         /* Testimonials Section */
@@ -295,7 +364,171 @@
             font-size: 0.9rem;
         }
 
-        /* Footer Melhorado */
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.2s; }
+        .stat-item:nth-child(2) { animation-delay: 0.25s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.35s; }
+
+        .stat-item:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .stat-item h3 {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient-bg);
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(112,216,0,0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .cta-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #6BC91A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(112,216,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: #000;
+        }
+
+        /* Footer */
         .footer {
             background: var(--footer-bg);
             padding: 60px 0 20px;
@@ -413,6 +646,14 @@
 
         /* Responsividade */
         @media (max-width: 968px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .planos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -430,6 +671,15 @@
 
             .hero h1 {
                 font-size: 2.2rem;
+            }
+
+            .services-grid,
+            .planos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .stats-mini-grid {
@@ -450,6 +700,20 @@
                 flex: 1;
                 justify-content: center;
             }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -457,7 +721,7 @@
                 font-size: 1.8rem;
             }
 
-            .services-grid-modern {
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -514,7 +778,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section - Textos Originais -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-badge">🚀 Melhor Suporte do Brasil</div>
@@ -527,20 +791,20 @@
         </div>
     </section>
 
-    <!-- Google Reviews Banner -->
+    <!-- Google Reviews Banner - Atualizado para 5.0 -->
     <section class="reviews-banner">
         <div class="container">
             <div class="rating-large">
-                <div class="stars">★★★★★</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
                 <div class="score">5.0</div>
                 <div class="count">avaliações no Google</div>
             </div>
             <div class="reviews-actions">
                 <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-google">
-                    <span>⭐</span> Ver avaliações no Google
+                    <span>★</span> Ver avaliações no Google
                 </a>
                 <a href="https://search.google.com/local/writereview?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-google">
-                    <span>✏️</span> Deixar uma avaliação
+                    <span>⚠️</span> Deixar uma avaliação
                 </a>
             </div>
         </div>
@@ -566,47 +830,70 @@
         </div>
     </section>
 
-    <!-- Serviços Principais em Cards -->
-    <section class="services-highlight">
+    <!-- Serviços Especializados - MANTIDOS IGUAIS -->
+    <section class="complementary-services">
         <div class="container">
-            <h2>Nossos Serviços</h2>
-            <p class="section-subtitle">Soluções completas para seu computador e notebook</p>
+            <h2>Serviços Especializados</h2>
+            <p class="section-subtitle">Soluções completas para manter sua tecnologia funcionando</p>
             
-            <div class="services-grid-modern">
-                <div class="service-card-modern">
-                    <div class="service-icon-modern">💿</div>
-                    <h3>Formatação de Windows</h3>
-                    <p>Formatação completa com instalação de drivers, programas essenciais e otimização do sistema.</p>
+            <div class="services-grid">
+                <!-- Manutenção de Computadores -->
+                <div class="service-card dark">
+                    <div class="service-icon">💻</div>
+                    <h3>Manutenção de Computadores</h3>
+                    <ul>
+                        <li>Limpeza interna e externa</li>
+                        <li>Troca de componentes</li>
+                        <li>Otimização de performance</li>
+                    </ul>
+                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
                 </div>
                 
-                <div class="service-card-modern">
-                    <div class="service-icon-modern">⚡</div>
-                    <h3>Upgrade de SSD</h3>
-                    <p>Substitua seu HD por um SSD e deixe seu computador até 10x mais rápido. Inclui clonagem de dados.</p>
+                <!-- Suporte Gamer -->
+                <div class="service-card dark">
+                    <div class="service-badge">Popular</div>
+                    <div class="service-icon">🎮</div>
+                    <h3>Suporte Gamer</h3>
+                    <ul>
+                        <li>Montagem de PC gamer</li>
+                        <li>Overclock seguro</li>
+                        <li>Otimização de jogos</li>
+                    </ul>
+                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
                 </div>
                 
-                <div class="service-card-modern">
-                    <div class="service-icon-modern">🧹</div>
-                    <h3>Limpeza interna</h3>
-                    <p>Limpeza completa, remoção de poeira e troca de pasta térmica para evitar superaquecimento.</p>
+                <!-- Suporte Remoto -->
+                <div class="service-card dark">
+                    <div class="service-icon">🌐</div>
+                    <h3>Suporte Remoto</h3>
+                    <ul>
+                        <li>Resolução de problemas</li>
+                        <li>Instalação de programas</li>
+                        <li>Remoção de vírus</li>
+                    </ul>
+                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
                 </div>
-                
-                <div class="service-card-modern">
-                    <div class="service-icon-modern">🔧</div>
-                    <h3>Reparo de placa-mãe</h3>
-                    <p>Diagnóstico e reparo profissional em placas-mãe de notebooks e computadores desktop.</p>
+
+                <!-- Manutenção de Impressoras -->
+                <div class="service-card dark">
+                    <div class="service-icon">🖨️</div>
+                    <h3>Manutenção de Impressoras</h3>
+                    <ul>
+                        <li>Limpeza de cabeças</li>
+                        <li>Troca de toners</li>
+                        <li>Configuração de rede</li>
+                    </ul>
+                    <a href="servicos.html" class="btn btn-primary">Saiba Mais</a>
                 </div>
-                
-                <div class="service-card-modern">
-                    <div class="service-icon-modern">💻</div>
-                    <h3>Manutenção de notebooks</h3>
-                    <p>Reparo em telas, teclados, conectores de energia e todo tipo de problema em notebooks.</p>
-                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="servicos.html" class="btn btn-outline">Ver Todos os Serviços</a>
             </div>
         </div>
     </section>
 
-    <!-- Planos Section (mantida) -->
+    <!-- Planos Section -->
     <section class="main-services">
         <div class="container">
             <h2>Nossos Planos</h2>
@@ -641,6 +928,37 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>Sobre a InfoTech</h2>
+                <p>Somos uma empresa especializada em suporte técnico e soluções tecnológicas, com mais de 4 anos de experiência no mercado. Nossa missão é evitar que você perca tempo com problemas de informática.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>1000+</h3>
+                        <p>Atendimentos Realizados</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4+</h3>
+                        <p>Anos de Experiência</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>300+</h3>
+                        <p>Clientes Satisfeitos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Suporte Disponível</p>
+                    </div>
+                </div>
+                
+                <a href="sobre.html" class="btn btn-primary">Conheça Nossa História</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Avaliações de Clientes -->
     <section class="testimonials-section">
         <div class="container">
@@ -649,26 +967,27 @@
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                     <div class="testimonial-text">"Atendimento rápido e eficiente. Levei meu notebook com tela quebrada e ficou perfeito. Preço justo e serviço de qualidade. Recomendo!"</div>
                     <div class="testimonial-author">Carlos A.</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                     <div class="testimonial-text">"Fiz upgrade de SSD no meu computador e ficou muito rápido. Além disso, fizeram backup de todos meus arquivos. Atendimento excelente!"</div>
                     <div class="testimonial-author">Mariana S.</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                     <div class="testimonial-text">"Sempre confio na InfoTech para resolver problemas de TI na minha empresa. Suporte rápido, profissional e com garantia. Melhor da região."</div>
                     <div class="testimonial-author">João P.</div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
+            <div style="text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn btn-outline">Ver todas avaliações no Google</a>
+                <a href="https://search.google.com/local/writereview?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn btn-primary">Deixar avaliação ⭐</a>
             </div>
         </div>
     </section>
@@ -687,7 +1006,7 @@
         </div>
     </section>
 
-    <!-- Footer Melhorado com Localização Correta -->
+    <!-- Footer com Localização Corrigida -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -758,7 +1077,10 @@
                     <h4>Localização</h4>
                     <div class="map-container">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.981315289132!2d-61.94447292421496!3d-10.88126088926008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93c9b306e11b9bc5%3A0xfc3996ee07c05562!2sInfotech%20Inform%C3%A1tica!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3284.196410093257!2d-61.96687635978728!3d-10.876726595283571!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93c99b94067f77a9%3A0x40ff18c77f8d7c9a!2sInfotech%20Inform%C3%A1tica!5e0!3m2!1spt-BR!2sbr!4v1772728341971!5m2!1spt-BR!2sbr" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade"
