@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfoTech - Suporte Remoto via AnyDesk</title>
+    <title>Suporte Remoto - InfoTech | AnyDesk</title>
     <meta name="description" content="Suporte remoto via AnyDesk da InfoTech. Instalação de programas, configuração de softwares e solução de problemas à distância para todo Brasil.">
     
     <!-- Favicon -->
@@ -21,34 +21,184 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- CSS Principal -->
     <link rel="stylesheet" href="css/styles.css">
     
-    <!-- CSS Específico da Página de Suporte -->
     <style>
-        /* Garantir que o título tenha a animação de entrada */
-        .hero h1 {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .hero p {
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        .hero-badge {
-            animation: fadeInUp 0.8s ease 0.1s forwards;
-            opacity: 0;
-            animation-fill-mode: forwards;
+        /* Estilos específicos para página de suporte remoto */
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: var(--gradient-bg);
+            text-align: center;
         }
 
-        /* Estilos exclusivos da página de suporte */
+        .hero-badge {
+            display: inline-block;
+            background: rgba(112,216,0,0.1);
+            color: var(--primary-green);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(112,216,0,0.3);
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Programas Section */
+        .programas-section {
+            padding: 60px 0;
+            background: var(--darker-bg);
+        }
+
+        .frase-topo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .frase-topo p {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .frase-topo strong {
+            color: var(--primary-green);
+        }
+
+        .badges-topo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            padding: 8px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .badge-pf {
+            background: var(--card-bg);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .badge-pj {
+            background: var(--primary-green);
+            color: #000;
+            border: 2px solid var(--primary-green);
+        }
+
+        .programas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .programa-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .programa-item:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .programa-item h4 {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .programa-lista {
+            list-style: none;
+        }
+
+        .programa-lista li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .programa-lista li::before {
+            content: "✓";
+            color: var(--primary-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .mensagem-extra {
+            text-align: center;
+            margin: 30px 0 20px;
+            padding: 20px;
+            background: rgba(112,216,0,0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .mensagem-extra p {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .mensagem-extra a {
+            color: var(--primary-green);
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mensagem-extra a:hover {
+            text-decoration: underline;
+        }
+
+        /* AnyDesk Card */
         .anydesk-section {
             padding: 60px 0;
             background: var(--dark-bg);
         }
-        
+
         .anydesk-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -59,20 +209,20 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .anydesk-card:hover {
             border-color: var(--primary-green);
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(126, 211, 33, 0.15);
+            box-shadow: 0 15px 40px rgba(112,216,0,0.15);
         }
-        
+
         .anydesk-card h2 {
             color: var(--primary-green);
             font-size: 2rem;
             margin-bottom: 30px;
             font-weight: 700;
         }
-        
+
         .id-input-area {
             background: var(--darker-bg);
             padding: 40px;
@@ -80,20 +230,20 @@
             border: 1px solid var(--border-color);
             margin: 30px 0;
         }
-        
+
         .id-input-area h3 {
             color: var(--text-primary);
             margin-bottom: 10px;
             font-size: 1.3rem;
             font-weight: 600;
         }
-        
+
         .id-hint {
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 20px;
         }
-        
+
         .id-input {
             width: 100%;
             max-width: 400px;
@@ -111,20 +261,20 @@
             letter-spacing: 2px;
             transition: all 0.3s ease;
         }
-        
+
         .id-input:focus {
             outline: none;
             border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(126, 211, 33, 0.2);
+            box-shadow: 0 0 0 3px rgba(112,216,0,0.2);
         }
-        
+
         .id-input::placeholder {
             color: var(--text-muted);
             font-size: 16px;
             font-weight: 400;
             letter-spacing: normal;
         }
-        
+
         .button-group {
             display: flex;
             gap: 15px;
@@ -132,7 +282,7 @@
             flex-wrap: wrap;
             margin: 30px 0 20px;
         }
-        
+
         .btn-suporte {
             display: inline-flex;
             align-items: center;
@@ -147,30 +297,30 @@
             min-width: 250px;
             justify-content: center;
         }
-        
+
         .btn-suporte-primary {
             background: var(--primary-green);
             color: #000;
         }
-        
+
         .btn-suporte-primary:hover {
             background: #6BC91A;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(126, 211, 33, 0.3);
+            box-shadow: 0 8px 25px rgba(112,216,0,0.3);
         }
-        
+
         .btn-suporte-secondary {
             background: transparent;
             color: var(--text-primary);
             border: 2px solid var(--border-color);
         }
-        
+
         .btn-suporte-secondary:hover {
             border-color: var(--primary-green);
             color: var(--primary-green);
             transform: translateY(-2px);
         }
-        
+
         .response-time {
             color: var(--primary-green);
             font-size: 0.9rem;
@@ -180,13 +330,13 @@
             justify-content: center;
             gap: 5px;
         }
-        
+
         /* Horário */
         .horario-section {
             padding: 60px 0;
             background: var(--darker-bg);
         }
-        
+
         .horario-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -195,7 +345,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .horario-card h2 {
             color: var(--primary-green);
             text-align: center;
@@ -203,7 +353,7 @@
             font-size: 2rem;
             font-weight: 700;
         }
-        
+
         .horario-grid {
             display: flex;
             justify-content: center;
@@ -211,50 +361,56 @@
             flex-wrap: wrap;
             margin-bottom: 30px;
         }
-        
+
         .horario-item {
             text-align: center;
             min-width: 200px;
         }
-        
+
         .horario-item h3 {
             color: var(--primary-green);
             font-size: 1.2rem;
             margin-bottom: 15px;
             font-weight: 600;
         }
-        
+
         .horario-item p {
             color: var(--text-secondary);
             font-size: 1.1rem;
             line-height: 1.8;
         }
-        
+
         .horario-badge {
-            background: rgba(126, 211, 33, 0.1);
+            background: rgba(112,216,0,0.1);
             color: var(--primary-green);
             padding: 10px 20px;
             border-radius: 50px;
             display: inline-block;
-            border: 1px solid rgba(126, 211, 33, 0.3);
+            border: 1px solid rgba(112,216,0,0.3);
             font-size: 0.9rem;
             margin-top: 20px;
         }
-        
+
         /* Contatos */
-        .contato-suporte-section {
+        .contato-section {
             padding: 60px 0;
             background: var(--dark-bg);
         }
-        
-        .contato-suporte-grid {
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .contato-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             margin-top: 40px;
         }
-        
-        .contato-suporte-card {
+
+        .contato-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -262,44 +418,44 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
-        .contato-suporte-card:hover {
+
+        .contato-card:hover {
             border-color: var(--primary-green);
             transform: translateY(-5px);
         }
-        
-        .contato-suporte-card h3 {
+
+        .contato-card h3 {
             color: var(--primary-green);
             margin-bottom: 15px;
             font-size: 1.2rem;
             font-weight: 600;
         }
-        
-        .contato-suporte-card a {
+
+        .contato-card a {
             color: var(--text-primary);
             text-decoration: none;
             font-size: 1.1rem;
             transition: color 0.3s;
             font-weight: 500;
         }
-        
-        .contato-suporte-card a:hover {
+
+        .contato-card a:hover {
             color: var(--primary-green);
         }
-        
+
         /* Passo a passo */
         .passo-section {
             padding: 60px 0;
             background: var(--darker-bg);
         }
-        
+
         .passo-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             margin-top: 40px;
         }
-        
+
         .passo-item {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -308,12 +464,12 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .passo-item:hover {
             border-color: var(--primary-green);
             transform: translateY(-5px);
         }
-        
+
         .passo-numero {
             width: 40px;
             height: 40px;
@@ -327,190 +483,76 @@
             font-size: 1.2rem;
             margin: 0 auto 20px;
         }
-        
+
         .passo-item h3 {
             color: var(--text-primary);
             margin-bottom: 10px;
             font-size: 1.1rem;
             font-weight: 600;
         }
-        
+
         .passo-item p {
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
-        
+
         /* Vantagens */
         .vantagens-section {
             padding: 60px 0;
             background: var(--dark-bg);
         }
-        
+
         .vantagens-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             margin-top: 40px;
         }
-        
+
         .vantagem-item {
             text-align: center;
             padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
-        
+
+        .vantagem-item:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
         .vantagem-icon {
             font-size: 3rem;
             margin-bottom: 15px;
             display: block;
         }
-        
+
         .vantagem-item h3 {
             color: var(--primary-green);
             margin-bottom: 10px;
             font-size: 1.2rem;
             font-weight: 600;
         }
-        
+
         .vantagem-item p {
             color: var(--text-secondary);
         }
-        
-        /* PROGRAMAS - SIMPLES */
-        .programas-simples {
-            background: var(--darker-bg);
-            padding: 40px 0 20px;
-        }
-        
-        .frase-topo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .frase-topo p {
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .frase-topo strong {
-            color: var(--primary-green);
-        }
-        
-        .badges-topo {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-        
-        .badge-item {
-            padding: 8px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        
-        .badge-pf {
-            background: #2a2a2a;
-            color: var(--primary-green);
-            border: 2px solid var(--primary-green);
-        }
-        
-        .badge-pj {
-            background: var(--primary-green);
-            color: #000;
-            border: 2px solid var(--primary-green);
-        }
-        
-        .programas-grid-simples {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .programa-item-simples {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px 15px;
-            transition: all 0.2s ease;
-        }
-        
-        .programa-item-simples:hover {
-            border-color: var(--primary-green);
-            transform: translateY(-3px);
-        }
-        
-        .programa-item-simples h4 {
-            color: var(--primary-green);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-        
-        .programa-lista-simples {
-            list-style: none;
-        }
-        
-        .programa-lista-simples li {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding: 4px 0;
-            padding-left: 18px;
-            position: relative;
-        }
-        
-        .programa-lista-simples li::before {
-            content: "✓";
-            color: var(--primary-green);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        
-        .mensagem-extra {
-            text-align: center;
-            margin: 30px 0 20px;
-            padding: 20px;
-            background: rgba(112,216,0,0.05);
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-green);
-        }
-        
-        .mensagem-extra p {
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-        
-        .mensagem-extra a {
-            color: var(--primary-green);
-            font-weight: 700;
-            text-decoration: none;
-        }
-        
-        .mensagem-extra a:hover {
-            text-decoration: underline;
-        }
-        
+
         /* FAQ */
         .faq-section {
             padding: 60px 0;
             background: var(--darker-bg);
         }
-        
+
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin-top: 40px;
         }
-        
+
         .faq-item {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -519,11 +561,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .faq-item:hover {
             border-color: var(--primary-green);
         }
-        
+
         .faq-item h3 {
             color: var(--primary-green);
             font-size: 1.1rem;
@@ -533,76 +575,109 @@
             align-items: center;
             font-weight: 600;
         }
-        
+
         .faq-item h3::after {
             content: '+';
             font-size: 1.5rem;
             font-weight: 300;
         }
-        
+
         .faq-item.active h3::after {
             content: '−';
         }
-        
+
         .faq-item p {
             color: var(--text-secondary);
             margin-top: 15px;
             display: none;
             line-height: 1.6;
         }
-        
+
         .faq-item.active p {
             display: block;
         }
-        
+
         /* CTA */
-        .cta-suporte-section {
+        .cta-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
-            text-align: center;
+            background: var(--gradient-bg);
             position: relative;
+            text-align: center;
         }
-        
-        .cta-suporte-section::before {
+
+        .cta-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(126, 211, 33, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(112,216,0,0.1) 0%, transparent 70%);
         }
-        
-        .cta-suporte-content {
+
+        .cta-content {
             position: relative;
             z-index: 2;
             max-width: 600px;
             margin: 0 auto;
         }
-        
-        .cta-suporte-content h2 {
-            color: var(--primary-green);
+
+        .cta-content h2 {
+            color: var(--text-primary);
             font-size: 2rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        
-        .cta-suporte-content p {
+
+        .cta-content p {
             color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
-        
+
         .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
-        /* Responsividade adicional */
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .programa-item {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .programa-item:nth-child(1) { animation-delay: 0.1s; }
+        .programa-item:nth-child(2) { animation-delay: 0.15s; }
+        .programa-item:nth-child(3) { animation-delay: 0.2s; }
+        .programa-item:nth-child(4) { animation-delay: 0.25s; }
+        .programa-item:nth-child(5) { animation-delay: 0.3s; }
+        .programa-item:nth-child(6) { animation-delay: 0.35s; }
+        .programa-item:nth-child(7) { animation-delay: 0.4s; }
+        .programa-item:nth-child(8) { animation-delay: 0.45s; }
+
+        /* Responsividade */
         @media (max-width: 968px) {
-            .contato-suporte-grid,
+            .programas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contato-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .vantagens-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -610,13 +685,17 @@
             .faq-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .programas-grid-simples {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
-        
+
         @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
             .passo-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -642,12 +721,16 @@
                 font-size: 1.4rem;
             }
         }
-        
+
         @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .programas-grid,
             .passo-grid,
-            .contato-suporte-grid,
-            .vantagens-grid,
-            .programas-grid-simples {
+            .contato-grid,
+            .vantagens-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -669,6 +752,10 @@
                 width: 80%;
                 text-align: center;
             }
+            
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -677,20 +764,19 @@
     <header class="header">
         <nav class="navbar">
             <div class="container">
-                <div class="nav-brand">
-                    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307" style="height:60px; width:auto; display:block;">
-                            <!-- ... SVG ... (igual ao da página sobre) -->
+                <div class="logo">
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307">
                             <path fill="#70D800" d="M222.745285,239.754761 C246.537872,216.038010 270.079498,192.571945 293.621124,169.105896 C293.421875,168.717636 293.222626,168.329376 293.023376,167.941116 C284.604736,167.941116 276.183289,168.057663 267.769531,167.854858 C265.795441,167.807281 263.285004,167.251068 261.974579,165.960739 C249.271790,153.452545 236.770050,140.740097 224.224396,128.072617 C223.805557,127.649712 223.529282,127.085609 222.575073,125.698280 C225.200150,125.698280 226.938568,125.698280 228.677002,125.698280 C263.002350,125.698357 297.328217,125.776215 331.652100,125.552551 C334.432434,125.534431 337.732452,124.063713 339.869354,122.207161 C345.571930,117.252769 350.771851,111.719826 356.171539,106.416824 C355.959534,105.989998 355.747528,105.563179 355.535522,105.136353 C353.787567,105.136353 352.039581,105.136353 350.291595,105.136353 C302.302765,105.136360 254.313843,105.101982 206.325241,105.205635 C202.724503,105.213409 200.096313,104.278511 197.523666,101.681541 C185.107071,89.147591 172.499832,76.802490 159.012894,63.452721 C259.357056,63.452721 358.293274,63.452721 456.393646,63.452721 C387.390411,132.292953 317.910614,201.608643 248.779785,270.576172 C240.184494,262.019440 230.456482,252.335052 220.455856,242.379318 C220.817825,241.957809 221.656067,240.981628 222.745285,239.754761 Z"/>
                             <path fill="#FDFDFD" d="M130.154877,93.845566 C159.887604,123.726234 189.369247,153.357986 218.434036,182.570740 C208.674072,192.375626 198.863022,202.231827 189.483292,211.654724 C140.371140,162.594177 90.702187,112.977386 40.639870,62.967648 C43.530575,62.967648 46.271526,62.967667 49.012474,62.967644 C64.507103,62.967514 80.003265,62.862083 95.494614,63.087418 C97.671600,63.119083 100.334152,64.241531 101.905914,65.757172 C111.378670,74.891678 120.598999,84.287964 130.154877,93.845566 Z"/>
                             <path fill="#6FD401" d="M128.945892,58.444138 C128.946121,59.977589 128.946121,61.082783 128.946121,63.141567 C122.710358,57.057999 117.160370,51.687561 111.692055,46.235203 C111.187492,45.732128 111.009048,44.707996 111.006310,43.924664 C110.964531,31.952517 110.977226,19.980181 110.977226,7.517497 C113.155807,7.419791 114.932854,7.270594 116.709915,7.270365 C205.036148,7.258996 293.362427,7.299698 381.688416,7.154734 C386.563965,7.146732 387.960419,8.542521 387.744537,13.316285 C387.368500,21.631964 387.526855,29.979160 387.695557,38.308399 C387.760590,41.518925 386.778961,42.833031 383.437988,42.656193 C379.130524,42.428192 374.801880,42.600662 369.529968,42.600662 C369.529968,38.201607 369.346680,34.114761 369.585327,30.052706 C369.793457,26.509773 368.830505,25.052996 364.915039,25.058144 C287.588043,25.159840 210.260910,25.133030 132.933792,25.144915 C131.800659,25.145090 130.667557,25.304541 128.945648,25.433884 C128.945648,36.462723 128.945648,47.239300 128.945892,58.444138 Z"/>
                             <path fill="#6FD401" d="M381.840363,284.091797 C343.763153,284.091766 306.164185,284.091766 268.565186,284.091766 C268.341461,283.733246 268.117706,283.374756 267.893951,283.016235 C273.370117,277.604309 278.732269,272.067047 284.422394,266.890259 C285.510010,265.900757 287.890289,266.140625 289.674774,266.137451 C313.997772,266.094482 338.320862,266.108521 362.643951,266.108551 C364.617828,266.108551 366.591705,266.108582 369.139618,266.108582 C369.285767,263.827606 369.512573,261.919586 369.514465,260.011353 C369.538452,235.521713 369.598755,211.031601 369.458771,186.542725 C369.436951,182.732498 370.530487,179.952499 373.325317,177.360962 C377.823456,173.190018 381.978821,168.649399 387.143768,163.383209 C387.143768,204.225449 387.143768,243.813232 387.143768,283.841370 C385.526123,283.925354 383.922363,284.008606 381.840363,284.091797 Z"/>
                             <path fill="#70D601" d="M110.963837,179.010071 C110.963821,174.022583 110.963821,169.532761 110.963821,163.385651 C115.888924,168.283279 119.690781,172.538086 123.994522,176.203598 C127.905197,179.534332 129.113144,183.278595 129.056808,188.364395 C128.792969,212.186005 128.939636,236.012146 128.939651,259.836670 C128.939667,261.650757 128.939651,263.464844 128.939651,266.114624 C131.194458,266.114624 133.108521,266.114624 135.022583,266.114624 C159.680130,266.114685 184.338043,266.177765 208.994843,266.042603 C212.447266,266.023682 214.905930,267.011505 217.290237,269.495850 C221.649994,274.038574 226.364777,278.240601 230.931503,282.584686 C230.710999,282.944305 230.490494,283.303894 230.269974,283.663513 C190.783432,283.663513 151.296875,283.663513 110.963860,283.663513 C110.963860,248.981216 110.963860,214.244476 110.963837,179.010071 Z"/>
                         </svg>
-                        <span style="color: #ffffff; font-size: 1.5rem; font-weight: 700;">InfoTech</span>
+                        <span>InfoTech</span>
                     </a>
                 </div>
-                
+
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Início</a></li>
                     <li><a href="planos.html" class="nav-link">Planos</a></li>
@@ -699,9 +785,9 @@
                     <li><a href="sobre.html" class="nav-link">Sobre</a></li>
                     <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
-                
+
                 <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-primary">Fale Conosco</a>
-                
+
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -714,16 +800,14 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">🖥️ Suporte Remoto</div>
-                <h1>Suporte Técnico Especializado</h1>
-                <p>Informe seu ID do AnyDesk e nossa equipe acessará seu computador com segurança e rapidez.</p>
-            </div>
+            <div class="hero-badge">🖥️ Suporte Remoto</div>
+            <h1>Suporte Técnico Especializado</h1>
+            <p>Informe seu ID do AnyDesk e nossa equipe acessará seu computador com segurança e rapidez.</p>
         </div>
     </section>
 
     <!-- PROGRAMAS -->
-    <section class="programas-simples">
+    <section class="programas-section">
         <div class="container">
             <div class="frase-topo">
                 <p><strong>Seu Office travou?</strong> A gente soluciona!</p>
@@ -734,73 +818,73 @@
                 <span class="badge-item badge-pj">🏢 Pessoa Jurídica (PJ)</span>
             </div>
             
-            <div class="programas-grid-simples">
-                <div class="programa-item-simples">
+            <div class="programas-grid">
+                <div class="programa-item">
                     <h4><span>📄</span> Escritório</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>Word</li>
                         <li>Excel</li>
                         <li>PowerPoint</li>
                         <li>Outlook</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>📐</span> Arquitetura</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>AutoCAD</li>
                         <li>Revit</li>
                         <li>SketchUp</li>
                         <li>Civil 3D</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>🎨</span> Design</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>CorelDRAW</li>
                         <li>Photoshop</li>
                         <li>Illustrator</li>
                         <li>Lightroom</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>📊</span> Contabilidade</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>Sistemas Contábeis</li>
                         <li>Certificado Digital</li>
                         <li>Backup de Dados</li>
                         <li>Excel Avançado</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>⚖️</span> Jurídico</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>PJE</li>
                         <li>ESAJ</li>
                         <li>Projuris</li>
                         <li>Certificado Digital</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>🔧</span> Engenharia</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>SolidWorks</li>
                         <li>Inventor</li>
                         <li>3ds Max</li>
                         <li>Civil 3D</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>🎮</span> 3D/Modelagem</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>Blender</li>
                         <li>3ds Max</li>
                         <li>Maya</li>
                         <li>Lumion</li>
                     </ul>
                 </div>
-                <div class="programa-item-simples">
+                <div class="programa-item">
                     <h4><span>🖥️</span> Outros</h4>
-                    <ul class="programa-lista-simples">
+                    <ul class="programa-lista">
                         <li>Programas específicos</li>
                         <li>Softwares diversos</li>
                         <li>Consulte-nos</li>
@@ -882,22 +966,22 @@
     </section>
 
     <!-- CONTATOS -->
-    <section class="contato-suporte-section">
+    <section class="contato-section">
         <div class="container">
-            <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 20px;">📞 Nossos Contatos</h2>
+            <h2 class="section-title">📞 Nossos Contatos</h2>
             
-            <div class="contato-suporte-grid">
-                <div class="contato-suporte-card">
+            <div class="contato-grid">
+                <div class="contato-card">
                     <h3>📱 WhatsApp</h3>
                     <a href="https://wa.me/5569992331200" target="_blank">(69) 99233-1200</a>
                 </div>
                 
-                <div class="contato-suporte-card">
+                <div class="contato-card">
                     <h3>📧 E-mail</h3>
                     <a href="mailto:ITinfotech.756@gmail.com">ITinfotech.756@gmail.com</a>
                 </div>
                 
-                <div class="contato-suporte-card">
+                <div class="contato-card">
                     <h3>📞 Telefone</h3>
                     <a href="tel:69992331200">(69) 99233-1200</a>
                 </div>
@@ -908,7 +992,7 @@
     <!-- PASSO A PASSO -->
     <section class="passo-section">
         <div class="container">
-            <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 20px;">📋 Como funciona?</h2>
+            <h2 class="section-title">📋 Como funciona?</h2>
             
             <div class="passo-grid">
                 <div class="passo-item">
@@ -941,7 +1025,7 @@
     <!-- VANTAGENS -->
     <section class="vantagens-section">
         <div class="container">
-            <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 20px;">✅ Vantagens</h2>
+            <h2 class="section-title">✅ Vantagens</h2>
             
             <div class="vantagens-grid">
                 <div class="vantagem-item">
@@ -968,7 +1052,7 @@
     <!-- FAQ -->
     <section class="faq-section">
         <div class="container">
-            <h2 style="text-align: center; color: var(--primary-green); margin-bottom: 20px;">❓ Perguntas Frequentes</h2>
+            <h2 class="section-title">❓ Perguntas Frequentes</h2>
             
             <div class="faq-grid">
                 <div class="faq-item">
@@ -995,9 +1079,9 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta-suporte-section">
+    <section class="cta-section">
         <div class="container">
-            <div class="cta-suporte-content">
+            <div class="cta-content">
                 <h2>Precisa de ajuda agora?</h2>
                 <p>Nossa equipe está pronta para resolver seu problema com rapidez e eficiência</p>
                 
@@ -1015,16 +1099,15 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">
-                        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307" style="height:50px; width:auto; display:block;">
-                                <!-- mesmo SVG reduzido -->
+                        <a href="index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 307">
                                 <path fill="#70D800" d="M222.745285,239.754761 C246.537872,216.038010 270.079498,192.571945 293.621124,169.105896 C293.421875,168.717636 293.222626,168.329376 293.023376,167.941116 C284.604736,167.941116 276.183289,168.057663 267.769531,167.854858 C265.795441,167.807281 263.285004,167.251068 261.974579,165.960739 C249.271790,153.452545 236.770050,140.740097 224.224396,128.072617 C223.805557,127.649712 223.529282,127.085609 222.575073,125.698280 C225.200150,125.698280 226.938568,125.698280 228.677002,125.698280 C263.002350,125.698357 297.328217,125.776215 331.652100,125.552551 C334.432434,125.534431 337.732452,124.063713 339.869354,122.207161 C345.571930,117.252769 350.771851,111.719826 356.171539,106.416824 C355.959534,105.989998 355.747528,105.563179 355.535522,105.136353 C353.787567,105.136353 352.039581,105.136353 350.291595,105.136353 C302.302765,105.136360 254.313843,105.101982 206.325241,105.205635 C202.724503,105.213409 200.096313,104.278511 197.523666,101.681541 C185.107071,89.147591 172.499832,76.802490 159.012894,63.452721 C259.357056,63.452721 358.293274,63.452721 456.393646,63.452721 C387.390411,132.292953 317.910614,201.608643 248.779785,270.576172 C240.184494,262.019440 230.456482,252.335052 220.455856,242.379318 C220.817825,241.957809 221.656067,240.981628 222.745285,239.754761 Z"/>
                                 <path fill="#FDFDFD" d="M130.154877,93.845566 C159.887604,123.726234 189.369247,153.357986 218.434036,182.570740 C208.674072,192.375626 198.863022,202.231827 189.483292,211.654724 C140.371140,162.594177 90.702187,112.977386 40.639870,62.967648 C43.530575,62.967648 46.271526,62.967667 49.012474,62.967644 C64.507103,62.967514 80.003265,62.862083 95.494614,63.087418 C97.671600,63.119083 100.334152,64.241531 101.905914,65.757172 C111.378670,74.891678 120.598999,84.287964 130.154877,93.845566 Z"/>
                                 <path fill="#6FD401" d="M128.945892,58.444138 C128.946121,59.977589 128.946121,61.082783 128.946121,63.141567 C122.710358,57.057999 117.160370,51.687561 111.692055,46.235203 C111.187492,45.732128 111.009048,44.707996 111.006310,43.924664 C110.964531,31.952517 110.977226,19.980181 110.977226,7.517497 C113.155807,7.419791 114.932854,7.270594 116.709915,7.270365 C205.036148,7.258996 293.362427,7.299698 381.688416,7.154734 C386.563965,7.146732 387.960419,8.542521 387.744537,13.316285 C387.368500,21.631964 387.526855,29.979160 387.695557,38.308399 C387.760590,41.518925 386.778961,42.833031 383.437988,42.656193 C379.130524,42.428192 374.801880,42.600662 369.529968,42.600662 C369.529968,38.201607 369.346680,34.114761 369.585327,30.052706 C369.793457,26.509773 368.830505,25.052996 364.915039,25.058144 C287.588043,25.159840 210.260910,25.133030 132.933792,25.144915 C131.800659,25.145090 130.667557,25.304541 128.945648,25.433884 C128.945648,36.462723 128.945648,47.239300 128.945892,58.444138 Z"/>
                                 <path fill="#6FD401" d="M381.840363,284.091797 C343.763153,284.091766 306.164185,284.091766 268.565186,284.091766 C268.341461,283.733246 268.117706,283.374756 267.893951,283.016235 C273.370117,277.604309 278.732269,272.067047 284.422394,266.890259 C285.510010,265.900757 287.890289,266.140625 289.674774,266.137451 C313.997772,266.094482 338.320862,266.108521 362.643951,266.108551 C364.617828,266.108551 366.591705,266.108582 369.139618,266.108582 C369.285767,263.827606 369.512573,261.919586 369.514465,260.011353 C369.538452,235.521713 369.598755,211.031601 369.458771,186.542725 C369.436951,182.732498 370.530487,179.952499 373.325317,177.360962 C377.823456,173.190018 381.978821,168.649399 387.143768,163.383209 C387.143768,204.225449 387.143768,243.813232 387.143768,283.841370 C385.526123,283.925354 383.922363,284.008606 381.840363,284.091797 Z"/>
                                 <path fill="#70D601" d="M110.963837,179.010071 C110.963821,174.022583 110.963821,169.532761 110.963821,163.385651 C115.888924,168.283279 119.690781,172.538086 123.994522,176.203598 C127.905197,179.534332 129.113144,183.278595 129.056808,188.364395 C128.792969,212.186005 128.939636,236.012146 128.939651,259.836670 C128.939667,261.650757 128.939651,263.464844 128.939651,266.114624 C131.194458,266.114624 133.108521,266.114624 135.022583,266.114624 C159.680130,266.114685 184.338043,266.177765 208.994843,266.042603 C212.447266,266.023682 214.905930,267.011505 217.290237,269.495850 C221.649994,274.038574 226.364777,278.240601 230.931503,282.584686 C230.710999,282.944305 230.490494,283.303894 230.269974,283.663513 C190.783432,283.663513 151.296875,283.663513 110.963860,283.663513 C110.963860,248.981216 110.963860,214.244476 110.963837,179.010071 Z"/>
                             </svg>
-                            <span style="color: #fff; font-size: 1.3rem; font-weight: 700;">InfoTech</span>
+                            <span>InfoTech</span>
                         </a>
                     </div>
                     <p>O melhor suporte técnico do Brasil. Evite perda de tempo com problemas de informática.</p>
@@ -1073,7 +1156,7 @@
         </div>
     </footer>
 
-    <!-- Removido script main.js para evitar conflitos -->
+    <!-- Scripts -->
     <script src="js/widget-atendimento.js"></script>
     
     <script>
@@ -1088,13 +1171,14 @@
             window.open(url, '_blank');
         }
         
+        // FAQ Accordion
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 item.classList.toggle('active');
             });
         });
         
-        // Menu hamburger (garantia)
+        // Menu hamburger
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
