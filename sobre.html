@@ -419,6 +419,51 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            /* Ajustes críticos para o menu mobile */
+            .navbar .container {
+                position: relative;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--menu-bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: left 0.3s ease;
+                border-top: 1px solid var(--menu-border);
+                z-index: 9999;
+                display: flex;
+                margin: 0;
+                padding: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .navbar .btn {
+                display: none;
+            }
+
+            .navbar .container > div:last-child {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex !important;
+                z-index: 10000;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -463,12 +508,10 @@
                     <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
 
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <!-- Botão de alternância de tema -->
+                <div class="header-actions">
                     <button class="theme-toggle" aria-label="Alternar modo claro/escuro">
                         <span class="icon">☀️</span>
                     </button>
-                    <!-- Botão Fale Conosco -->
                     <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-primary">Fale Conosco</a>
                 </div>
 
@@ -726,7 +769,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2021-2026 InfoTech Informática. Todos os direitos reservados.</p>
+                <p>&copy; 2021-2026 Infotech Informática. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -737,7 +780,6 @@
     <!-- Script do modo claro/escuro e menu hamburger -->
     <script>
         (function() {
-            // Função para definir o tema
             function setTheme(theme) {
                 if (theme === 'light') {
                     document.body.classList.add('light-mode');
@@ -753,16 +795,18 @@
                 localStorage.setItem('theme', theme);
             }
 
-            // Inicializar quando o DOM carregar
             document.addEventListener('DOMContentLoaded', function() {
-                // Menu hamburger
+                // Menu hamburger - VERSÃO SIMPLIFICADA E GARANTIDA
                 const hamburger = document.querySelector('.hamburger');
                 const navMenu = document.querySelector('.nav-menu');
                 
                 if (hamburger && navMenu) {
+                    console.log('Menu encontrado'); // Para debug
+                    
                     hamburger.addEventListener('click', function(e) {
                         e.preventDefault();
                         e.stopPropagation();
+                        console.log('Hamburger clicado'); // Para debug
                         hamburger.classList.toggle('active');
                         navMenu.classList.toggle('active');
                     });
@@ -773,36 +817,29 @@
                             navMenu.classList.remove('active');
                         });
                     });
-                    
-                    document.addEventListener('click', function(e) {
-                        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                            hamburger.classList.remove('active');
-                            navMenu.classList.remove('active');
-                        }
-                    });
                 }
 
                 // Tema
                 const themeToggles = document.querySelectorAll('.theme-toggle');
                 
-                if (themeToggles.length === 0) return;
+                if (themeToggles.length > 0) {
+                    const savedTheme = localStorage.getItem('theme');
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-                const savedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (savedTheme) {
+                        setTheme(savedTheme);
+                    } else {
+                        setTheme(prefersDark ? 'dark' : 'light');
+                    }
 
-                if (savedTheme) {
-                    setTheme(savedTheme);
-                } else {
-                    setTheme(prefersDark ? 'dark' : 'light');
-                }
-
-                themeToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const isLight = document.body.classList.contains('light-mode');
-                        setTheme(isLight ? 'dark' : 'light');
+                    themeToggles.forEach(toggle => {
+                        toggle.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const isLight = document.body.classList.contains('light-mode');
+                            setTheme(isLight ? 'dark' : 'light');
+                        });
                     });
-                });
+                }
             });
         })();
     </script>
