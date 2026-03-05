@@ -82,71 +82,6 @@
             opacity: 0;
         }
 
-        /* Google Reviews Section */
-        .reviews-banner {
-            padding: 40px 0;
-            background: var(--dark-bg);
-            border-bottom: 1px solid var(--border-color);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .reviews-banner .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .rating-large {
-            text-align: center;
-        }
-
-        .rating-large .stars {
-            color: #ffbb00;
-            font-size: 2rem;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .rating-large .score {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-green);
-        }
-
-        .rating-large .count {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .reviews-actions {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn-google {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-google:hover {
-            border-color: var(--primary-green);
-            color: var(--primary-green);
-            transform: translateY(-2px);
-        }
-
         /* Serviços Antigos (mantidos) */
         .services-grid {
             display: grid;
@@ -332,36 +267,6 @@
             height: 20px;
             background: var(--primary-green);
             border-radius: 2px;
-        }
-
-        /* Stats Mini */
-        .stats-mini {
-            padding: 40px 0;
-            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .stats-mini-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stat-mini-item {
-            text-align: center;
-        }
-
-        .stat-mini-item h3 {
-            color: var(--primary-green);
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-
-        .stat-mini-item p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
         }
 
         /* About Section */
@@ -658,10 +563,6 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
-            .stats-mini-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
@@ -680,25 +581,6 @@
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-mini-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .reviews-banner .container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .reviews-actions {
-                width: 100%;
-            }
-
-            .btn-google {
-                flex: 1;
-                justify-content: center;
             }
 
             .cta-content h2 {
@@ -727,10 +609,6 @@
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .reviews-actions {
-                flex-direction: column;
             }
         }
     </style>
@@ -787,45 +665,6 @@
             <div class="hero-buttons">
                 <a href="planos.html" class="btn btn-primary">Ver Planos</a>
                 <a href="https://wa.me/5569992331200?text=Olá,%20gostaria%20de%20falar%20com%20a%20Infotech" target="_blank" class="btn btn-secondary">Fale Conosco</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Google Reviews Banner - Atualizado para 5.0 -->
-    <section class="reviews-banner">
-        <div class="container">
-            <div class="rating-large">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="score">5.0</div>
-                <div class="count">avaliações no Google</div>
-            </div>
-            <div class="reviews-actions">
-                <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-google">
-                    <span>★</span> Ver avaliações no Google
-                </a>
-                <a href="https://search.google.com/local/writereview?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn-google">
-                    <span>⚠️</span> Deixar uma avaliação
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Mini -->
-    <section class="stats-mini">
-        <div class="container">
-            <div class="stats-mini-grid">
-                <div class="stat-mini-item">
-                    <h3>1000+</h3>
-                    <p>atendimentos realizados</p>
-                </div>
-                <div class="stat-mini-item">
-                    <h3>4+</h3>
-                    <p>anos de experiência</p>
-                </div>
-                <div class="stat-mini-item">
-                    <h3>300+</h3>
-                    <p>clientes satisfeitos</p>
-                </div>
             </div>
         </div>
     </section>
@@ -983,11 +822,6 @@
                     <div class="testimonial-text">"Sempre confio na InfoTech para resolver problemas de TI na minha empresa. Suporte rápido, profissional e com garantia. Melhor da região."</div>
                     <div class="testimonial-author">João P.</div>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://search.google.com/local/reviews?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn btn-outline">Ver todas avaliações no Google</a>
-                <a href="https://search.google.com/local/writereview?placeid=CHIJL12P3RX9z5QRYpVHwO5ZOfw" target="_blank" class="btn btn-primary">Deixar avaliação ⭐</a>
             </div>
         </div>
     </section>
