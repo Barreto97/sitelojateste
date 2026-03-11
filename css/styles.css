@@ -54,6 +54,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 section {
@@ -652,8 +653,27 @@ section h2 {
     }
 }
 
+/* ===== CORREÇÃO URGENTE PARA MOBILE ===== */
 @media (max-width: 768px) {
-    /* ===== HEADER MOBILE ===== */
+    /* Container mais aproveitado */
+    .container {
+        padding: 0 16px;
+    }
+    
+    /* HEADER - Mais compacto */
+    .navbar {
+        padding: 0.6rem 0;
+    }
+    
+    .logo svg {
+        height: 35px;
+    }
+    
+    .logo span {
+        font-size: 1.1rem;
+    }
+    
+    /* Menu mobile */
     .desktop-only {
         display: none !important;
     }
@@ -666,24 +686,16 @@ section h2 {
         display: none;
     }
     
-    .logo svg {
-        height: 45px;
-    }
-    
-    .logo span {
-        font-size: 1.3rem;
-    }
-    
     .hamburger {
         display: flex !important;
     }
     
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 70px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 70px);
         background: var(--menu-bg);
         flex-direction: column;
         align-items: center;
@@ -694,7 +706,7 @@ section h2 {
         z-index: 9999;
         display: flex;
         margin: 0;
-        padding: 40px 20px;
+        padding: 30px 16px;
         overflow-y: auto;
     }
     
@@ -703,182 +715,238 @@ section h2 {
     }
     
     .nav-link {
-        font-size: 1.2rem;
-        padding: 12px;
+        font-size: 1.1rem;
+        padding: 10px;
         width: 100%;
         text-align: center;
-        display: block;
     }
     
-    /* ===== HERO MOBILE ===== */
+    /* HERO - Totalmente reformulado */
     .hero {
-        padding: 120px 0 60px;
+        padding: 90px 0 40px !important;
     }
     
     .hero-badge {
-        font-size: 0.8rem;
-        padding: 0.4rem 1rem;
+        font-size: 0.7rem !important;
+        padding: 0.3rem 1rem !important;
+        margin-bottom: 1rem !important;
     }
     
     .hero h1 {
-        font-size: 2rem;
-        padding: 0 10px;
+        font-size: 1.6rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.8rem !important;
+        padding: 0 !important;
     }
     
     .hero p {
-        font-size: 1rem;
-        padding: 0 15px;
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 !important;
     }
     
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+        width: 100%;
     }
     
     .hero-buttons .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
+        min-width: auto;
+        padding: 0.7rem !important;
+        font-size: 0.9rem !important;
+        justify-content: center;
     }
     
-    /* ===== GRIDS MOBILE ===== */
-    .services-grid,
-    .planos-grid,
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    /* ===== CARDS MOBILE ===== */
+    /* TÍTULOS DAS SEÇÕES */
     section {
-        padding: 60px 0;
+        padding: 40px 0 !important;
     }
     
     section h2 {
-        font-size: 2rem;
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
     }
     
     .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 10px;
     }
     
+    /* GRIDS - Uma coluna */
+    .services-grid,
+    .planos-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        margin-top: 20px !important;
+    }
+    
+    /* CARDS */
     .service-card,
     .plan-card,
     .stat-item {
-        padding: 1.5rem;
+        padding: 1.2rem !important;
     }
     
     .service-icon {
-        font-size: 2rem;
+        font-size: 1.8rem !important;
+        margin-bottom: 0.5rem !important;
     }
     
     .service-card h3,
     .plan-card h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
     }
     
-    /* ===== CTA MOBILE ===== */
+    .service-card p,
+    .plan-card p {
+        font-size: 0.85rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4;
+    }
+    
+    .service-card ul {
+        margin-bottom: 1rem !important;
+    }
+    
+    .service-card li {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.3rem !important;
+        padding-left: 1.2rem !important;
+    }
+    
+    .service-card .btn,
+    .plan-card .btn {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 1rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* STATS GRID */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin: 20px 0 !important;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .stat-item p {
+        font-size: 0.8rem !important;
+    }
+    
+    /* ABOUT SECTION */
+    .about-section {
+        padding: 40px 0 !important;
+    }
+    
+    .about-content p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 25px !important;
+    }
+    
+    /* CTA SECTION */
     .cta-section {
-        padding: 60px 0;
+        padding: 40px 0 !important;
     }
     
     .cta-content h2 {
-        font-size: 2rem;
+        font-size: 1.4rem !important;
+        margin-bottom: 0.8rem !important;
     }
     
     .cta-content p {
-        font-size: 1rem;
-        padding: 0 15px;
+        font-size: 0.85rem !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 10px !important;
     }
     
     .cta-buttons {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
     }
     
     .cta-buttons .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
+        padding: 0.7rem !important;
+        font-size: 0.9rem !important;
+        justify-content: center;
     }
     
-    /* ===== FOOTER MOBILE ===== */
+    /* FOOTER */
     .footer {
-        padding: 40px 0 15px;
+        padding: 30px 0 10px !important;
+    }
+    
+    .footer-content {
+        gap: 20px !important;
     }
     
     .footer .logo svg {
-        height: 40px;
+        height: 30px !important;
     }
     
     .footer .logo span {
-        font-size: 1.2rem;
+        font-size: 1rem !important;
     }
     
     .footer-links {
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
     }
     
     .footer-column h4 {
-        font-size: 1rem;
+        font-size: 0.9rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .footer-column li {
+        margin-bottom: 5px !important;
     }
     
     .footer-column a,
     .footer-column li:not(a) {
-        font-size: 0.9rem;
+        font-size: 0.8rem !important;
     }
     
     .footer-bottom {
-        font-size: 0.85rem;
+        font-size: 0.7rem !important;
+        padding-top: 15px !important;
     }
 }
 
-@media (max-width: 480px) {
-    /* ===== TELAS MUITO PEQUENAS ===== */
-    .container {
-        padding: 0 15px;
-    }
-    
+/* Para telas muito pequenas */
+@media (max-width: 400px) {
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem !important;
     }
     
     .hero p {
-        font-size: 0.95rem;
+        font-size: 0.85rem !important;
     }
     
     section h2 {
-        font-size: 1.8rem;
+        font-size: 1.3rem !important;
     }
     
-    .service-card h3,
-    .plan-card h3 {
-        font-size: 1.1rem;
-    }
-    
-    .stat-item h3 {
-        font-size: 2rem;
+    .stats-grid {
+        grid-template-columns: 1fr !important;
     }
     
     .footer-links {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    .footer-column {
+        grid-template-columns: 1fr !important;
         text-align: center;
-    }
-    
-    .btn {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    
-    .logo span {
-        font-size: 1.2rem;
-    }
-    
-    .logo svg {
-        height: 40px;
     }
 }
 
