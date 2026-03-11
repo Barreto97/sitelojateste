@@ -1019,3 +1019,82 @@ html {
         gap: 8px !important;
     }
 }
+/* ===== CORREÇÃO BOTÕES OCULTOS NO MOBILE ===== */
+@media screen and (max-width: 768px) {
+    /* Garante visibilidade de todos os botões de ação */
+    .service-card .btn,
+    .plan-card .btn,
+    .plano-card .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline,
+    .btn-review,
+    .btn-review-primary,
+    .cta-buttons .btn,
+    .hero-buttons .btn {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0.7rem 1.2rem !important;
+        margin: 0 !important;
+        position: relative !important;
+        pointer-events: auto !important;
+        z-index: 1 !important;
+    }
+    
+    /* Botões dentro de cards ocupam toda largura */
+    .service-card .btn,
+    .plan-card .btn,
+    .plano-card .btn {
+        width: 100% !important;
+        margin-top: 1rem !important;
+        justify-content: center !important;
+    }
+    
+    /* Botões de avaliação */
+    .review-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin-top: 30px !important;
+    }
+    
+    .review-buttons .btn-review,
+    .review-buttons .btn-review-primary {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+    }
+    
+    /* Botões do CTA e Hero */
+    .cta-buttons,
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    
+    .cta-buttons .btn,
+    .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+    }
+    
+    /* Remove qualquer regra conflitante */
+    .service-card .btn:not(.desktop-only),
+    .plan-card .btn:not(.desktop-only) {
+        display: flex !important;
+    }
+    
+    /* Garante que links com aparência de botão funcionem */
+    a.btn,
+    button.btn {
+        display: flex !important;
+    }
+}
