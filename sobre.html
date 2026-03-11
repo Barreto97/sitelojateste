@@ -796,82 +796,109 @@
     <script src="js/main.js"></script>
     <script src="js/widget-atendimento.js"></script>
     
-    <!-- Script do modo claro/escuro e menu hamburger -->
-    <script>
-    (function() {
-        function setTheme(theme) {
-            if (theme === 'light') {
-                document.body.classList.add('light-mode');
-                document.querySelectorAll('.theme-toggle .icon').forEach(icon => {
-                    if (icon) icon.textContent = '🌙';
+   <!-- Script do modo claro/escuro e menu hamburger -->
+<script>
+(function() {
+    // Função para alternar tema
+    function setTheme(theme) {
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+            document.querySelectorAll('.theme-toggle .icon').forEach(icon => {
+                if (icon) icon.textContent = '🌙';
+            });
+        } else {
+            document.body.classList.remove('light-mode');
+            document.querySelectorAll('.theme-toggle .icon').forEach(icon => {
+                if (icon) icon.textContent = '☀️';
+            });
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Garantir que o DOM está completamente carregado
+    function init() {
+        console.log('Inicializando scripts...');
+        
+        // ===== MENU HAMBURGER =====
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            console.log('✅ Menu hamburger encontrado');
+            
+            // Remove eventos anteriores para evitar duplicação
+            hamburger.replaceWith(hamburger.cloneNode(true));
+            const newHamburger = document.querySelector('.hamburger');
+            const newNavMenu = document.querySelector('.nav-menu');
+            
+            newHamburger.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                this.classList.toggle('active');
+                newNavMenu.classList.toggle('active');
+                console.log('Menu clicado:', this.classList.contains('active') ? 'aberto' : 'fechado');
+            });
+            
+            // Fechar ao clicar nos links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    newHamburger.classList.remove('active');
+                    newNavMenu.classList.remove('active');
                 });
-            } else {
-                document.body.classList.remove('light-mode');
-                document.querySelectorAll('.theme-toggle .icon').forEach(icon => {
-                    if (icon) icon.textContent = '☀️';
-                });
-            }
-            localStorage.setItem('theme', theme);
+            });
+            
+            // Fechar ao clicar fora
+            document.addEventListener('click', function(event) {
+                if (!newNavMenu.contains(event.target) && !newHamburger.contains(event.target)) {
+                    newHamburger.classList.remove('active');
+                    newNavMenu.classList.remove('active');
+                }
+            });
+        } else {
+            console.warn('❌ Menu hamburger não encontrado');
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // ===== MENU HAMBURGER =====
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
+        // ===== TEMA =====
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        
+        if (themeToggles.length > 0) {
+            console.log('✅ Botão de tema encontrado');
             
-            if (hamburger && navMenu) {
-                console.log('✅ Menu encontrado - funcionando!');
-                
-                hamburger.addEventListener('click', function(e) {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme(prefersDark ? 'dark' : 'light');
+            }
+
+            themeToggles.forEach(toggle => {
+                // Remove eventos anteriores
+                toggle.replaceWith(toggle.cloneNode(true));
+            });
+            
+            // Reaplica eventos nos novos elementos
+            document.querySelectorAll('.theme-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
                     e.preventDefault();
-                    e.stopPropagation();
-                    
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
+                    const isLight = document.body.classList.contains('light-mode');
+                    setTheme(isLight ? 'dark' : 'light');
                 });
-                
-                // Fechar ao clicar nos links
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', function() {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    });
-                });
-                
-                // Fechar ao clicar fora
-                document.addEventListener('click', function(event) {
-                    if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    }
-                });
-            }
+            });
+        } else {
+            console.warn('❌ Botão de tema não encontrado');
+        }
+    }
 
-            // ===== TEMA =====
-            const themeToggles = document.querySelectorAll('.theme-toggle');
-            
-            if (themeToggles.length > 0) {
-                const savedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-                if (savedTheme) {
-                    setTheme(savedTheme);
-                } else {
-                    setTheme(prefersDark ? 'dark' : 'light');
-                }
-
-                themeToggles.forEach(toggle => {
-                    if (toggle) {
-                        toggle.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const isLight = document.body.classList.contains('light-mode');
-                            setTheme(isLight ? 'dark' : 'light');
-                        });
-                    }
-                });
-            }
-        });
-    })();
-    </script>
+    // Executar quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
 </body>
 </html>
