@@ -984,3 +984,15 @@ html {
     background: var(--primary-green);
     color: #000;
 }
+/* REMOVER BOTÃO FALE CONOSCO DO MOBILE */
+@media (max-width: 768px) {
+    /* Esconde o botão Fale Conosco no mobile */
+    .header-actions .btn-primary {
+        display: none !important;
+    }
+    
+    /* Mantém apenas o botão de tema */
+    .header-actions .theme-toggle {
+        display: flex !important;
+    }
+}
