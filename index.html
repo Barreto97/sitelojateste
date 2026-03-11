@@ -1142,5 +1142,34 @@
             });
         })();
     </script>
+    <script>
+// GARANTIA: Remove botão Fale Conosco do mobile
+(function() {
+    function esconderBotaoMobile() {
+        if (window.innerWidth <= 768) {
+            const botoes = document.querySelectorAll('.header-actions a.btn-primary, .btn-primary.desktop-only');
+            botoes.forEach(botao => {
+                botao.style.display = 'none';
+                botao.style.opacity = '0';
+                botao.style.visibility = 'hidden';
+                botao.style.width = '0';
+                botao.style.height = '0';
+                botao.style.padding = '0';
+                botao.style.margin = '0';
+                botao.style.position = 'absolute';
+                botao.style.pointerEvents = 'none';
+            });
+            console.log('✅ Botão removido do mobile');
+        }
+    }
+    
+    // Executar quando carregar e redimensionar
+    document.addEventListener('DOMContentLoaded', esconderBotaoMobile);
+    window.addEventListener('resize', esconderBotaoMobile);
+    
+    // Executar também após 1 segundo (garantia)
+    setTimeout(esconderBotaoMobile, 1000);
+})();
+</script>
 </body>
 </html>
