@@ -130,6 +130,8 @@ section h2 {
     list-style: none;
     gap: 2rem;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
@@ -153,6 +155,13 @@ section h2 {
     right: 0;
     height: 2px;
     background: var(--primary-green);
+}
+
+/* Ações do Header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 /* ===== BOTÕES ===== */
@@ -226,24 +235,66 @@ section h2 {
     transform: scale(1.05);
 }
 
-/* ===== MENU HAMBURGER ===== */
+/* Botão de tema mobile */
+.theme-toggle-mobile {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-mobile:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-2px);
+}
+
+/* ===== MENU HAMBURGER (CORRIGIDO) ===== */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 4px;
+    gap: 6px;
+    padding: 5px;
+    z-index: 10001;
 }
 
 .hamburger span {
-    width: 25px;
+    width: 30px;
     height: 3px;
     background: var(--text-primary);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+
+/* ===== CLASSES AUXILIARES ===== */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
-    padding: 120px 0 80px;
+    padding: 150px 0 80px;
     background: var(--gradient-bg);
     text-align: center;
     position: relative;
@@ -415,7 +466,7 @@ section h2 {
 .service-card li {
     color: var(--text-secondary);
     margin-bottom: 0.5rem;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     position: relative;
 }
 
@@ -592,7 +643,7 @@ section h2 {
     font-size: 0.9rem;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ===== RESPONSIVIDADE (CORRIGIDA) ===== */
 @media (max-width: 968px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -616,9 +667,21 @@ section h2 {
 }
 
 @media (max-width: 768px) {
-    /* Header e navegação */
+    /* Header e navegação - CORRIGIDO */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: block !important;
+    }
+    
+    .header-actions {
+        display: none;
+    }
+
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-menu {
@@ -630,32 +693,26 @@ section h2 {
         background: var(--menu-bg);
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 30px;
+        justify-content: flex-start;
+        gap: 20px;
         transition: left 0.3s ease;
         border-top: 1px solid var(--menu-border);
         z-index: 9999;
         display: flex;
+        margin: 0;
+        padding: 40px 20px;
+        overflow-y: auto;
     }
 
     .nav-menu.active {
         left: 0;
     }
 
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .navbar .btn {
-        display: none;
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 12px;
+        width: 100%;
+        text-align: center;
     }
 
     /* Ajustes de grid */
@@ -667,7 +724,7 @@ section h2 {
 
     /* Hero */
     .hero {
-        padding: 100px 0 60px;
+        padding: 120px 0 60px;
     }
     
     .hero h1 {
@@ -749,10 +806,11 @@ section h2 {
         border-top: none;
         z-index: auto;
         display: flex;
+        padding: 0;
     }
 
     .hamburger {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -769,100 +827,4 @@ html {
 ::-moz-selection {
     background: var(--primary-green);
     color: #000;
-}
-
-/* ===== CORREÇÕES HEADER ===== */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.theme-toggle {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    padding: 8px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.theme-toggle:hover {
-    border-color: var(--primary-green);
-    transform: translateY(-2px);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .desktop-only {
-        display: none !important;
-    }
-    
-    .mobile-only {
-        display: block !important;
-    }
-    
-    .header-actions {
-        display: none; /* Esconde no mobile */
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: var(--menu-bg);
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
-        transition: left 0.3s ease;
-        border-top: 1px solid var(--border-color);
-        z-index: 9999;
-        display: flex;
-        margin: 0;
-        padding: 40px 20px;
-        overflow-y: auto;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-link {
-        font-size: 1.2rem;
-        padding: 12px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .hamburger {
-        display: flex !important;
-        z-index: 10000;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-}
-
-/* Desktop */
-@media (min-width: 769px) {
-    .mobile-only {
-        display: none !important;
-    }
-    
-    .header-actions {
-        display: flex !important;
-    }
 }
