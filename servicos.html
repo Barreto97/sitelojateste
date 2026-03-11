@@ -991,5 +991,61 @@
             });
         })();
     </script>
+    <script>
+// REMOVER BOTÃO FALE CONOSCO DO MOBILE - VERSÃO RADICAL
+(function() {
+    function removerBotaoPermanente() {
+        // Verifica se é mobile
+        if (window.innerWidth <= 768) {
+            // Procura o botão de várias formas
+            const botoes = document.querySelectorAll(
+                '.header-actions a.btn-primary, ' +
+                '.header-actions .btn-primary, ' +
+                'a.btn-primary.desktop-only, ' +
+                '.btn-primary.desktop-only, ' +
+                '.header-actions a[href*="wa.me"], ' +
+                'a[href*="wa.me"].btn-primary'
+            );
+            
+            // Remove cada botão encontrado
+            botoes.forEach(botao => {
+                if (botao && botao.parentNode) {
+                    botao.remove();
+                    console.log('✅ Botão removido com sucesso');
+                }
+            });
+            
+            // Verifica se ainda existe algum botão com texto "Fale Conosco"
+            const todosLinks = document.querySelectorAll('a');
+            todosLinks.forEach(link => {
+                if (link.textContent.includes('Fale Conosco') && window.innerWidth <= 768) {
+                    link.remove();
+                    console.log('✅ Botão "Fale Conosco" removido por texto');
+                }
+            });
+        }
+    }
+    
+    // Executar várias vezes para garantir
+    function executarMultiplasVezes() {
+        removerBotaoPermanente();
+        setTimeout(removerBotaoPermanente, 100);
+        setTimeout(removerBotaoPermanente, 300);
+        setTimeout(removerBotaoPermanente, 500);
+        setTimeout(removerBotaoPermanente, 1000);
+    }
+    
+    // Executar quando a página carregar
+    document.addEventListener('DOMContentLoaded', executarMultiplasVezes);
+    
+    // Executar quando redimensionar
+    window.addEventListener('resize', function() {
+        setTimeout(executarMultiplasVezes, 100);
+    });
+    
+    // Executar imediatamente
+    executarMultiplasVezes();
+})();
+</script>
 </body>
 </html>
