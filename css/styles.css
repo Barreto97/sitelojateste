@@ -984,13 +984,12 @@ html {
     background: var(--primary-green);
     color: #000;
 }
+
 /* ===== REMOVER BOTÃO FALE CONOSCO DO MOBILE ===== */
 @media screen and (max-width: 768px) {
-    /* Remove o botão Fale Conosco */
+    /* Remove APENAS o botão Fale Conosco do header */
     .header-actions a.btn-primary,
-    .header-actions .btn-primary,
-    a.btn-primary.desktop-only,
-    .btn-primary.desktop-only {
+    .header-actions .btn-primary {
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -1012,20 +1011,15 @@ html {
         position: relative !important;
         pointer-events: auto !important;
     }
-    
-    /* Garante que o container dos botões não atrapalha */
-    .header-actions {
-        display: flex !important;
-        gap: 8px !important;
-    }
 }
+
 /* ===== CORREÇÃO BOTÕES OCULTOS NO MOBILE ===== */
 @media screen and (max-width: 768px) {
-    /* Garante visibilidade de todos os botões de ação */
+    /* Garante visibilidade de todos os botões de ação (EXCETO o do header) */
     .service-card .btn,
     .plan-card .btn,
     .plano-card .btn,
-    .btn-primary,
+    .btn-primary:not(.header-actions .btn-primary),
     .btn-secondary,
     .btn-outline,
     .btn-review,
@@ -1086,18 +1080,13 @@ html {
         justify-content: center !important;
     }
     
-    /* Remove qualquer regra conflitante */
-    .service-card .btn:not(.desktop-only),
-    .plan-card .btn:not(.desktop-only) {
-        display: flex !important;
-    }
-    
     /* Garante que links com aparência de botão funcionem */
     a.btn,
     button.btn {
         display: flex !important;
     }
 }
+
 /* ===== TEXTO DIFERENCIADO PARA MOBILE/DESKTOP ===== */
 @media screen and (max-width: 768px) {
     .mobile-contrate {
