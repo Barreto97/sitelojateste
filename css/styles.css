@@ -984,15 +984,31 @@ html {
     background: var(--primary-green);
     color: #000;
 }
-/* REMOVER BOTÃO FALE CONOSCO DO MOBILE */
-@media (max-width: 768px) {
-    /* Esconde o botão Fale Conosco no mobile */
-    .header-actions .btn-primary {
+/* ===== REMOVER BOTÃO FALE CONOSCO DO MOBILE ===== */
+@media screen and (max-width: 768px) {
+    .header-actions a.btn-primary,
+    .header-actions .btn-primary,
+    a.btn-primary.desktop-only,
+    .btn-primary {
         display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        position: absolute !important;
+        pointer-events: none !important;
     }
     
-    /* Mantém apenas o botão de tema */
+    /* Garante que o botão de tema continua visível */
     .header-actions .theme-toggle {
         display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 38px !important;
+        height: 38px !important;
+        position: relative !important;
+        pointer-events: auto !important;
     }
 }
