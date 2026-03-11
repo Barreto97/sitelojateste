@@ -986,10 +986,11 @@ html {
 }
 /* ===== REMOVER BOTÃO FALE CONOSCO DO MOBILE ===== */
 @media screen and (max-width: 768px) {
+    /* Remove o botão Fale Conosco */
     .header-actions a.btn-primary,
     .header-actions .btn-primary,
     a.btn-primary.desktop-only,
-    .btn-primary {
+    .btn-primary.desktop-only {
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -1010,5 +1011,11 @@ html {
         height: 38px !important;
         position: relative !important;
         pointer-events: auto !important;
+    }
+    
+    /* Garante que o container dos botões não atrapalha */
+    .header-actions {
+        display: flex !important;
+        gap: 8px !important;
     }
 }
