@@ -1098,3 +1098,34 @@ html {
         display: flex !important;
     }
 }
+/* ===== TEXTO DIFERENCIADO PARA MOBILE/DESKTOP ===== */
+@media screen and (max-width: 768px) {
+    .mobile-contrate {
+        display: inline-block !important;
+    }
+    .mobile-orcamento {
+        display: inline-block !important;
+    }
+    .desktop-contrate,
+    .desktop-orcamento {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-contrate,
+    .mobile-orcamento {
+        display: none !important;
+    }
+    .desktop-contrate {
+        display: inline-block !important;
+    }
+    .desktop-orcamento {
+        display: inline-block !important;
+    }
+}
+
+/* Garantia para botões */
+.btn span {
+    white-space: nowrap;
+}
